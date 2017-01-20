@@ -15,6 +15,8 @@ public class GameController : MonoBehaviour {
             return instance;
         }
     }
+
+    public int Points;
 	// Use this for initialization
 	void Start () {
         State = EventState.Idle;
@@ -38,6 +40,10 @@ public class GameController : MonoBehaviour {
             default:
                 break;
         }
+    }
+
+    public void ChangePoints(int change) {
+
     }
 }
 
