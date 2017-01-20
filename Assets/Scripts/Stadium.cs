@@ -4,24 +4,42 @@ using UnityEngine;
 
 public class Stadium : MonoBehaviour {
 
-    public List<ListWrapper> Rows = new List<ListWrapper>();
+    public List<ListWrapper> Columns = new List<ListWrapper>();
 
     public bool DoWave;
     public float wavePos;
     public float waveSpeed;
-	// Use this for initialization
-	void Start () {
-		
+    public float waveLength;
+
+    public float maxYOffset;
+
+    public int rowLength;
+
+    // Use this for initialization
+    void Start () {
+        wavePos = -waveLength;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (DoWave) {
-            int rowLength = Rows[0].Length;
+            rowLength = Columns.Count;
 
             wavePos = Time.deltaTime * waveSpeed + wavePos;
-            if (wavePos > rowLength) {
-                wavePos = wavePos - rowLength;
+            if (wavePos > (rowLength + waveLength)) {
+                wavePos = -waveLength;
+
+
+            }
+
+            for (int i = 0; i < Columns.Count; i++) {
+                foreach (var seats in Columns[i].Seats) {
+                    float offset = 0;
+                    if ((i - waveLength) < wavePos && (i + waveLength) > wavePos) {
+                        offset = (waveLength - Mathf.Abs(wavePos - i)) / waveLength * maxYOffset;
+                    }
+                    seats.Ocupant.SetYOffset(offset);
+                }
             }
         }
 	}
@@ -29,7 +47,7 @@ public class Stadium : MonoBehaviour {
 
 [System.Serializable]
 public class ListWrapper {
-    public List<GameObject> Seats;
+    public List<Seat> Seats;
 
     public int Length {
         get {
