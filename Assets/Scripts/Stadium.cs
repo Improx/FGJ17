@@ -38,7 +38,9 @@ public class Stadium : MonoBehaviour {
                     if ((i - waveLength) < wavePos && (i + waveLength) > wavePos) {
                         offset = (waveLength - Mathf.Abs(wavePos - i)) / waveLength * maxYOffset;
                     }
-                    seats.Ocupant.SetYOffset(offset);
+                    if (seats.Ocupant) {
+                        seats.Ocupant.SetYOffset(offset);
+                    }
                 }
             }
         }
