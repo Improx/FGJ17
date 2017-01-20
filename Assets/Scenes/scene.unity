@@ -1,15 +1,15 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!29 &1
-SceneSettings:
+OcclusionCullingSettings:
   m_ObjectHideFlags: 0
-  m_PVSData: 
-  m_PVSObjectsArray: []
-  m_PVSPortalsArray: []
+  serializedVersion: 2
   m_OcclusionBakeSettings:
     smallestOccluder: 5
     smallestHole: 0.25
     backfaceThreshold: 100
+  m_SceneGUID: 00000000000000000000000000000000
+  m_OcclusionCullingData: {fileID: 0}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -79,26 +79,27 @@ NavMeshSettings:
   m_ObjectHideFlags: 0
   m_BuildSettings:
     serializedVersion: 2
+    agentTypeID: 0
     agentRadius: 0.5
     agentHeight: 2
     agentSlope: 45
     agentClimb: 0.4
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
-    accuratePlacement: 0
     minRegionArea: 2
-    cellSize: 0.16666667
     manualCellSize: 0
+    cellSize: 0.16666667
+    accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
 --- !u!1 &181561992
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 181561994}
-  - 108: {fileID: 181561993}
+  - component: {fileID: 181561994}
+  - component: {fileID: 181561993}
   m_Layer: 0
   m_Name: Directional light
   m_TagString: Untagged
@@ -149,23 +150,23 @@ Transform:
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
   m_LocalPosition: {x: -0.06, y: 0.334, z: -0.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1735539850
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1735539855}
-  - 20: {fileID: 1735539854}
-  - 92: {fileID: 1735539853}
-  - 124: {fileID: 1735539852}
-  - 81: {fileID: 1735539851}
-  - 114: {fileID: 1735539856}
+  - component: {fileID: 1735539855}
+  - component: {fileID: 1735539854}
+  - component: {fileID: 1735539853}
+  - component: {fileID: 1735539852}
+  - component: {fileID: 1735539851}
+  - component: {fileID: 1735539856}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -210,7 +211,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.01
   far clip plane: 1000
   field of view: 30
   orthographic: 0
@@ -237,10 +238,10 @@ Transform:
   m_LocalRotation: {x: 0.12533319, y: 0, z: 0, w: 0.9921148}
   m_LocalPosition: {x: 0, y: 2.73, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 14.4, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 14.4, y: 0, z: 0}
 --- !u!114 &1735539856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,57 +253,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27a4e149849d345eeb193a28c3543e33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floorBlock: {fileID: 1000013424408346, guid: efeaeced8953946dc9ea9fd03b9049b2, type: 2}
-  chair: {fileID: 1000013424408346, guid: efeaeced8953946dc9ea9fd03b9049b2, type: 2}
+  floorBlock: {fileID: 1000013952239672, guid: 6ab05b97ccb814a4b9774e8c5dae861a, type: 2}
+  chair: {fileID: 1000013424408346, guid: 79607e536a3f0498da7bc027fba1d597, type: 2}
   chairHeight: 10
-  chairWidth: 2
-  rows: 2
-  rowOffset: {x: 0, y: 0}
-  midAreaSize: {x: 30, y: 30}
---- !u!1001 &2085189227
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4000010038485226, guid: 3bd0559ac544f49019ce10786b054aa6, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010038485226, guid: 3bd0559ac544f49019ce10786b054aa6, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010038485226, guid: 3bd0559ac544f49019ce10786b054aa6, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010038485226, guid: 3bd0559ac544f49019ce10786b054aa6, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010038485226, guid: 3bd0559ac544f49019ce10786b054aa6, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0.5750131
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010038485226, guid: 3bd0559ac544f49019ce10786b054aa6, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010038485226, guid: 3bd0559ac544f49019ce10786b054aa6, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: -0.81814426
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010038485226, guid: 3bd0559ac544f49019ce10786b054aa6, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 65000010356287396, guid: 3bd0559ac544f49019ce10786b054aa6,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 3bd0559ac544f49019ce10786b054aa6, type: 2}
-  m_IsPrefabParent: 0
+  chairWidth: 2.5
+  rowsX: 0
+  rowsY: 0
+  rowAmount: 15
+  rowOffset: {x: 2.5, y: 1}
+  midAreaSize: {x: 70, y: 40}
