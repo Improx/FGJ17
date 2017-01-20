@@ -22,12 +22,17 @@ public class MouseAimCamera : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-            float rotationX = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * sensitivityX;
+        float rotationX = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * sensitivityX;
+        if (rotationX < 180 && rotationX > 0) {
             rotationX = Mathf.Clamp(rotationX, minimumX, maximumX);
-            rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
-            rotationY = Mathf.Clamp(rotationY, minimumY, maximumY);
+        }
+        if (rotationX > 180) {
+            rotationX = Mathf.Clamp(rotationX, 270, 360);
+        }
+        rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
+        rotationY = Mathf.Clamp(rotationY, minimumY, maximumY);
 
-            transform.localEulerAngles = new Vector3(-rotationY, rotationX, 0);
+        transform.localEulerAngles = new Vector3(-rotationY, rotationX, 0);
 
     }
 }
