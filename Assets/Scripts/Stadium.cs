@@ -27,8 +27,7 @@ public class Stadium : MonoBehaviour {
     // Use this for initialization
     void Start () {
         Waves = new List<Wave>();
-        GenerateRandomWave();
-        //GenerateRandomWaveReverse();
+        rowLength = Columns.Count;
     }
 	
 	// Update is called once per frame
@@ -40,10 +39,6 @@ public class Stadium : MonoBehaviour {
 
             wave.Tick(Time.deltaTime);
 
-            if (wave.IsDone) {
-                Waves.Remove(wave);
-                continue;
-            }
 
 
             for (int i = 0; i < Columns.Count; i++) {
@@ -54,6 +49,8 @@ public class Stadium : MonoBehaviour {
                 }
             }
         }
+
+        Waves.RemoveAll(wave => wave.IsDone);
 
         for (int i = 0; i < Columns.Count; i++) {
             foreach (var seat in Columns[i].Seats) {
@@ -66,12 +63,11 @@ public class Stadium : MonoBehaviour {
     }
 
     public void GenerateRandomWave() {
-        var wave = new Wave(2, 1.5f, false);
-        Waves.Add(wave);
-    }
+        bool reversed = Random.Range(0, 10.0f) > 0.5f;
 
-    public void GenerateRandomWaveReverse() {
-        var wave = new Wave( 2, 1.5f, true);
+        float length = Random.Range(1f, 2f);
+        float speed = Random.Range(1f, 4f);
+        var wave = new Wave(speed, length, reversed);
         Waves.Add(wave);
     }
 }

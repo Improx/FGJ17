@@ -34,6 +34,10 @@ public class Wave {
     }
 
     public void Tick (float delta) {
-        wavePos = delta * waveSpeed + wavePos;
+        if (reverse) {
+            wavePos = wavePos - delta * waveSpeed;
+        } else {
+            wavePos = wavePos + delta * waveSpeed;
+        }
     }
 }
