@@ -2670,7 +2670,7 @@ Prefab:
     - target: {fileID: 114036612321136992, guid: e0c7ec28d626ae746b54cb8ce337dc84,
         type: 2}
       propertyPath: minimumY
-      value: -5
+      value: -20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e0c7ec28d626ae746b54cb8ce337dc84, type: 2}
