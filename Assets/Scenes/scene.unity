@@ -152,7 +152,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!1 &1735539850
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,57 +252,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27a4e149849d345eeb193a28c3543e33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floorBlock: {fileID: 1000013424408346, guid: efeaeced8953946dc9ea9fd03b9049b2, type: 2}
-  chair: {fileID: 1000013424408346, guid: efeaeced8953946dc9ea9fd03b9049b2, type: 2}
+  floorBlock: {fileID: 1000013952239672, guid: 6ab05b97ccb814a4b9774e8c5dae861a, type: 2}
+  chair: {fileID: 1000013424408346, guid: 79607e536a3f0498da7bc027fba1d597, type: 2}
   chairHeight: 10
-  chairWidth: 2
-  rows: 2
-  rowOffset: {x: 0, y: 0}
-  midAreaSize: {x: 30, y: 30}
---- !u!1001 &2085189227
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4000010038485226, guid: 3bd0559ac544f49019ce10786b054aa6, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010038485226, guid: 3bd0559ac544f49019ce10786b054aa6, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010038485226, guid: 3bd0559ac544f49019ce10786b054aa6, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010038485226, guid: 3bd0559ac544f49019ce10786b054aa6, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010038485226, guid: 3bd0559ac544f49019ce10786b054aa6, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0.5750131
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010038485226, guid: 3bd0559ac544f49019ce10786b054aa6, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010038485226, guid: 3bd0559ac544f49019ce10786b054aa6, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: -0.81814426
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010038485226, guid: 3bd0559ac544f49019ce10786b054aa6, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 65000010356287396, guid: 3bd0559ac544f49019ce10786b054aa6,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 3bd0559ac544f49019ce10786b054aa6, type: 2}
-  m_IsPrefabParent: 0
+  chairWidth: 2.5
+  rowsX: 0
+  rowsY: 0
+  rowAmount: 30
+  rowOffset: {x: 2.5, y: 1}
+  midAreaSize: {x: 100, y: 50}

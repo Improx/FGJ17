@@ -236,7 +236,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010038485226}
   m_Layer: 0
-  m_Name: Dude
+  m_Name: Dude (copy)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
