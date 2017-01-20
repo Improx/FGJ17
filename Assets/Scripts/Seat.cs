@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TempDude : MonoBehaviour {
+public class Seat : MonoBehaviour {
+
+    public Dude Ocupant;
 
 	// Use this for initialization
 	void Start () {

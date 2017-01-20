@@ -3,13 +3,8 @@
 --- !u!129 &1
 PlayerSettings:
   m_ObjectHideFlags: 0
-<<<<<<< Updated upstream
-  serializedVersion: 8
-  productGUID: 0ceae3725b8db43cdab9bc9a7c5747a3
-=======
   serializedVersion: 10
-  productGUID: 6a425fe50b2061a4ea074174e9cd4c5b
->>>>>>> Stashed changes
+  productGUID: ea471cbba817eab459e3579cb9b6fd40
   AndroidProfiler: 0
   defaultScreenOrientation: 4
   targetDevice: 2
@@ -19,11 +14,7 @@ PlayerSettings:
   productName: FGJ17
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
-<<<<<<< Updated upstream
-  m_SplashScreenStyle: 0
-=======
   m_SplashScreenBackgroundColor: {r: 0.13333334, g: 0.17254902, b: 0.21176471, a: 1}
->>>>>>> Stashed changes
   m_ShowUnitySplashScreen: 1
   m_ShowUnitySplashLogo: 1
   m_SplashScreenOverlayOpacity: 1
@@ -77,10 +68,6 @@ PlayerSettings:
   defaultIsNativeResolution: 1
   runInBackground: 0
   captureSingleScreen: 0
-<<<<<<< Updated upstream
-  Override IPod Music: 0
-=======
->>>>>>> Stashed changes
   muteOtherAudioSources: 0
   Prepare IOS For Recording: 0
   submitAnalytics: 1
@@ -113,10 +100,6 @@ PlayerSettings:
   xboxOneResolution: 0
   xboxOneMonoLoggingLevel: 0
   xboxOneLoggingLevel: 1
-<<<<<<< Updated upstream
-  ps3SplashScreen: {fileID: 0}
-=======
->>>>>>> Stashed changes
   videoMemoryForVertexBuffers: 0
   psp2PowerMode: 0
   psp2AcquireBGM: 1
@@ -138,15 +121,9 @@ PlayerSettings:
   bundleIdentifier: com.Company.ProductName
   bundleVersion: 1.0
   preloadedAssets: []
-<<<<<<< Updated upstream
-  metroEnableIndependentInputSource: 0
-  xboxOneDisableKinectGpuReservation: 0
-  singlePassStereoRendering: 0
-=======
   metroInputSource: 0
   m_HolographicPauseOnTrackingLoss: 1
   xboxOneDisableKinectGpuReservation: 0
->>>>>>> Stashed changes
   protectGraphicsMemory: 0
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 9
@@ -167,17 +144,10 @@ PlayerSettings:
     serializedVersion: 2
     m_Bits: 238
   iPhoneSdkVersion: 988
-<<<<<<< Updated upstream
-  iPhoneTargetOSVersion: 24
-  tvOSSdkVersion: 0
-  tvOSTargetOSVersion: 900
-  tvOSRequireExtendedGameController: 0
-=======
   iOSTargetOSVersionString: 
   tvOSSdkVersion: 0
   tvOSRequireExtendedGameController: 0
   tvOSTargetOSVersionString: 
->>>>>>> Stashed changes
   uIPrerenderedIcon: 0
   uIRequiresPersistentWiFi: 0
   uIRequiresFullScreen: 1
@@ -221,12 +191,6 @@ PlayerSettings:
   iOSBackgroundModes: 0
   iOSMetalForceHardShadows: 0
   appleDeveloperTeamID: 
-<<<<<<< Updated upstream
-  iOSManualSigningProvisioningProfileID: 
-  tvOSManualSigningProvisioningProfileID: 
-  appleEnableAutomaticSigning: 0
-=======
->>>>>>> Stashed changes
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
@@ -318,24 +282,15 @@ PlayerSettings:
   ps4ApplicationParam4: 0
   ps4DownloadDataSize: 0
   ps4GarlicHeapSize: 2048
-<<<<<<< Updated upstream
-  ps4Passcode: ZYw3GFhPr6BInZITSBQOgwxhHxrhytFU
-=======
-  ps4Passcode: frAQBc8Wsa1xVPfvJcrgRYwTiizs2trQ
->>>>>>> Stashed changes
+  ps4Passcode: eaoEiIgxIX4a2dREbbSqWy6yhKIDCdJO
   ps4UseDebugIl2cppLibs: 0
   ps4pnSessions: 1
   ps4pnPresence: 1
   ps4pnFriends: 1
   ps4pnGameCustomData: 1
   playerPrefsSupport: 0
-<<<<<<< Updated upstream
-  ps4UseResolutionFallback: 0
-  restrictedAudioUsageRights: 0
-=======
   restrictedAudioUsageRights: 0
   ps4UseResolutionFallback: 0
->>>>>>> Stashed changes
   ps4ReprojectionSupport: 0
   ps4UseAudio3dBackend: 0
   ps4SocialScreenEnabled: 0
@@ -352,12 +307,6 @@ PlayerSettings:
   ps4attribShareSupport: 0
   ps4attribExclusiveVR: 0
   ps4disableAutoHideSplash: 0
-<<<<<<< Updated upstream
-  ps4videoRecordingFeaturesUsed: 0
-  ps4contentSearchFeaturesUsed: 0
-  ps4attribEyeToEyeDistanceSettingVR: 0
-=======
->>>>>>> Stashed changes
   ps4IncludedModules: []
   monoEnv: 
   psp2Splashimage: {fileID: 0}
@@ -377,11 +326,7 @@ PlayerSettings:
   psp2LiveAreaTrialPath: 
   psp2PatchChangeInfoPath: 
   psp2PatchOriginalPackage: 
-<<<<<<< Updated upstream
-  psp2PackagePassword: loiivhOmebpblnTipx7wXZAqJZR5Y4M9
-=======
-  psp2PackagePassword: F69AzBlax3CF3EDNhm3soLBPh71Yexui
->>>>>>> Stashed changes
+  psp2PackagePassword: yapnxrpMCARCr4zdGc81tBDKsMlaZTXC
   psp2KeystoneFile: 
   psp2MemoryExpansionMode: 0
   psp2DRMType: 0
@@ -464,11 +409,8 @@ PlayerSettings:
   tizenSigningProfileName: 
   tizenGPSPermissions: 0
   tizenMicrophonePermissions: 0
-<<<<<<< Updated upstream
-=======
   tizenDeploymentTarget: 
   tizenDeploymentTargetType: 0
->>>>>>> Stashed changes
   tizenMinOSVersion: 0
   n3dsUseExtSaveData: 0
   n3dsCompressStaticMem: 1
@@ -509,65 +451,8 @@ PlayerSettings:
   XboxOneSplashScreen: {fileID: 0}
   XboxOneAllowedProductIds: []
   XboxOnePersistentLocalStorageSize: 0
-<<<<<<< Updated upstream
-  intPropertyNames:
-  - Android::ScriptingBackend
-  - Standalone::ScriptingBackend
-  - WebGL::ScriptingBackend
-  - WebGL::audioCompressionFormat
-  - WebGL::exceptionSupport
-  - WebGL::memorySize
-  - WebPlayer::ScriptingBackend
-  - iOS::Architecture
-  - iOS::ScriptingBackend
-  Android::ScriptingBackend: 0
-  Standalone::ScriptingBackend: 0
-  WebGL::ScriptingBackend: 1
-  WebGL::audioCompressionFormat: 4
-  WebGL::exceptionSupport: 1
-  WebGL::memorySize: 256
-  WebPlayer::ScriptingBackend: 0
-  iOS::Architecture: 2
-  iOS::ScriptingBackend: 1
-  boolPropertyNames:
-  - WebGL::analyzeBuildSize
-  - WebGL::dataCaching
-  - WebGL::useEmbeddedResources
-  - XboxOne::enus
-  WebGL::analyzeBuildSize: 0
-  WebGL::dataCaching: 0
-  WebGL::useEmbeddedResources: 0
-  XboxOne::enus: 1
-  stringPropertyNames:
-  - Analytics_ServiceEnabled::Analytics_ServiceEnabled
-  - Build_ServiceEnabled::Build_ServiceEnabled
-  - Collab_ServiceEnabled::Collab_ServiceEnabled
-  - ErrorHub_ServiceEnabled::ErrorHub_ServiceEnabled
-  - Game_Performance_ServiceEnabled::Game_Performance_ServiceEnabled
-  - Hub_ServiceEnabled::Hub_ServiceEnabled
-  - Purchasing_ServiceEnabled::Purchasing_ServiceEnabled
-  - UNet_ServiceEnabled::UNet_ServiceEnabled
-  - Unity_Ads_ServiceEnabled::Unity_Ads_ServiceEnabled
-  - WebGL::emscriptenArgs
-  - WebGL::template
-  - additionalIl2CppArgs::additionalIl2CppArgs
-  Analytics_ServiceEnabled::Analytics_ServiceEnabled: False
-  Build_ServiceEnabled::Build_ServiceEnabled: False
-  Collab_ServiceEnabled::Collab_ServiceEnabled: False
-  ErrorHub_ServiceEnabled::ErrorHub_ServiceEnabled: False
-  Game_Performance_ServiceEnabled::Game_Performance_ServiceEnabled: False
-  Hub_ServiceEnabled::Hub_ServiceEnabled: False
-  Purchasing_ServiceEnabled::Purchasing_ServiceEnabled: False
-  UNet_ServiceEnabled::UNet_ServiceEnabled: False
-  Unity_Ads_ServiceEnabled::Unity_Ads_ServiceEnabled: False
-  WebGL::emscriptenArgs: 
-  WebGL::template: APPLICATION:Default
-  additionalIl2CppArgs::additionalIl2CppArgs: 
-  vectorPropertyNames: []
-=======
   vrEditorSettings: {}
   cloudServicesEnabled: {}
->>>>>>> Stashed changes
   cloudProjectId: 
   projectName: 
   organizationId: 
