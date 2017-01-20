@@ -26,6 +26,7 @@ public class MouseAimCamera : MonoBehaviour
         if (rotationX < 180 && rotationX > 0) {
             rotationX = Mathf.Clamp(rotationX, minimumX, maximumX);
         }
+        //Change from hard coded values
         if (rotationX > 180) {
             rotationX = Mathf.Clamp(rotationX, 270, 360);
         }
