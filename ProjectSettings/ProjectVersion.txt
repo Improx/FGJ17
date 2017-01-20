@@ -1,6 +1,1 @@
-<<<<<<< HEAD
-m_EditorVersion: 5.4.3xf1Linux
-=======
-m_EditorVersion: 5.3.1f1
->>>>>>> master
-m_StandardAssetsVersion: 0
+m_EditorVersion: 5.5.0f3
