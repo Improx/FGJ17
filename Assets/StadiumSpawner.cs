@@ -18,14 +18,13 @@ public class StadiumSpawner : MonoBehaviour {
 	[SerializeField] private Vector2 midAreaSize;
 	private int playerRow;
 	private int currentRow;
+	private Vector3 offsetFromCenter;
 
 	[SerializeField] private List<GameObject> playerSpawnCandidates;
 
 	void Awake(){
-		print (playerSpawnCandidates.Count);
 		int i = Random.Range (0, playerSpawnCandidates.Count - 1);
 		playerSpawnCandidates [i].GetComponent<Chair> ().SpawnPlayer();
-		print (i);
 	}
 
 	public void SpawnStadium(){
@@ -34,6 +33,10 @@ public class StadiumSpawner : MonoBehaviour {
 		playerRow = Random.Range (3, rowAmount);
 
 		ClearStadium ();
+
+		stadiumParent = GetCenterObject ().transform;
+
+		offsetFromCenter = Vector3.left * midAreaSize.x / 2 + Vector3.back * midAreaSize.y / 2;
 		for (int i = 0; i < rowAmount; i++) {
 			if (i == playerRow) {
 				SpawnRectangle (i, true);
@@ -41,6 +44,8 @@ public class StadiumSpawner : MonoBehaviour {
 				SpawnRectangle (i);
 			}
 		}
+
+
 	}
 
 	private void SpawnRectangle(int row, bool spawnPlayer = false){
@@ -48,15 +53,23 @@ public class StadiumSpawner : MonoBehaviour {
 		int xAmount = Mathf.FloorToInt (midAreaSize.x + currentRow * rowOffset.x * row);
 		int yAmount = Mathf.FloorToInt (midAreaSize.y + currentRow * rowOffset.x * row);
 
-		SpawnBlock (Vector3.zero + new Vector3 (0, rowOffset.y * row, -rowOffset.x * row) + Vector3.right * xAmount/2, Vector3.zero);
-		SpawnBlock (Vector3.zero + new Vector3(-rowOffset.x * row, rowOffset.y * row, 0) + Vector3.forward * xAmount/2, Vector3.up*90);
-		SpawnBlock (Vector3.forward * midAreaSize.y + new Vector3(0,rowOffset.y * row, rowOffset.x * row) + Vector3.right * xAmount/2, Vector3.up*180);
-		SpawnBlock (Vector3.right * midAreaSize.x + new Vector3(rowOffset.x * row, rowOffset.y * row, 0) + Vector3.forward * xAmount/2, Vector3.up*-90);
+		//bottom
+		SpawnBlock (offsetFromCenter + new Vector3 (0, rowOffset.y * row, -rowOffset.x * row) + Vector3.right * xAmount/2, Vector3.zero);
+		//left
+		SpawnBlock (offsetFromCenter + new Vector3(-rowOffset.x * row, rowOffset.y * row, 0) + Vector3.forward * xAmount/2, Vector3.up*90);
+		//top
+		SpawnBlock (offsetFromCenter + Vector3.forward * midAreaSize.y + new Vector3(0,rowOffset.y * row, rowOffset.x * row) + Vector3.right * xAmount/2, Vector3.up*180);
+		//right
+		SpawnBlock (offsetFromCenter + Vector3.right * midAreaSize.x + new Vector3(rowOffset.x * row, rowOffset.y * row, 0) + Vector3.forward * xAmount/2, Vector3.up*-90);
 
-		SpawnRow (Vector3.zero + new Vector3(-chairWidth*row, rowOffset.y * row, -rowOffset.x * row), Vector3.right, xAmount + 5*row, Vector3.zero, true&&spawnPlayer);
-		SpawnRow (Vector3.zero + new Vector3(-rowOffset.x * row, rowOffset.y * row, -chairWidth*row), Vector3.forward, yAmount + 5*row, Vector3.up*90, false&&spawnPlayer);
-		SpawnRow (Vector3.forward * midAreaSize.y + new Vector3(-chairWidth*row,rowOffset.y * row, rowOffset.x * row), Vector3.right, xAmount + 5*row, Vector3.up*180, true&&spawnPlayer);
-		SpawnRow (Vector3.right * midAreaSize.x + new Vector3(rowOffset.x * row, rowOffset.y * row, -chairWidth*row), Vector3.forward, yAmount + 5*row, Vector3.up*-90, false&&spawnPlayer);
+		//bottom
+		SpawnRow (offsetFromCenter + new Vector3(-chairWidth*row, rowOffset.y * row, -rowOffset.x * row), Vector3.right, xAmount + 5*row, Vector3.zero, true&&spawnPlayer);
+		//left
+		SpawnRow (offsetFromCenter + new Vector3(-rowOffset.x * row, rowOffset.y * row, -chairWidth*row), Vector3.forward, yAmount + 5*row, Vector3.up*90, false&&spawnPlayer);
+		//top
+		SpawnRow (offsetFromCenter + Vector3.forward * midAreaSize.y + new Vector3(-chairWidth*row,rowOffset.y * row, rowOffset.x * row), Vector3.right, xAmount + 5*row, Vector3.up*180, true&&spawnPlayer);
+		//right
+		SpawnRow (offsetFromCenter + Vector3.right * midAreaSize.x + new Vector3(rowOffset.x * row, rowOffset.y * row, -chairWidth*row), Vector3.forward, yAmount + 5*row, Vector3.up*-90, false&&spawnPlayer);
 	}
 
 	private void SpawnRow(Vector3 sPos, Vector3 growDir, int chairAmount, Vector3 rot, bool isPlayerSpawnCandidate){
@@ -89,9 +102,21 @@ public class StadiumSpawner : MonoBehaviour {
 		return c;
 	}
 
+	private GameObject GetCenterObject(){
+		GameObject g = new GameObject ();
+		g.AddComponent<Stadium> ();
+		g.GetComponent<Stadium> ().Center = g.transform;
+		g.name = "StadiumParent";
+		g.transform.SetParent (transform);
+		return g;
+	}
+
 	public void ClearStadium(){
-		for (int i = stadiumParent.childCount - 1; i >= 0; i--) {
-			DestroyImmediate (stadiumParent.GetChild(i).gameObject);
+		if (stadiumParent != null) {
+			for (int i = stadiumParent.childCount - 1; i >= 0; i--) {
+				DestroyImmediate (stadiumParent.GetChild (i).gameObject);
+			}
+			DestroyImmediate (stadiumParent.gameObject);
 		}
 		
 		playerSpawnCandidates.Clear ();
