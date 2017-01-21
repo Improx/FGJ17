@@ -35,7 +35,8 @@ public class Stadium : MonoBehaviour {
         foreach (var wave in Waves) {
 
             EnableScore = wave.Tick(Time.deltaTime);
-            if (Mathf.Abs(Mathf.Round(EnableScore)) == 100) {
+            //print(Mathf.Round(EnableScore));
+            if (Mathf.Abs(Mathf.Round(EnableScore)) < 100 && Mathf.Abs(Mathf.Round(EnableScore)) > 80) {
                 theScoreController.CanGainScore(3);
             }
 
