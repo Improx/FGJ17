@@ -35,18 +35,10 @@ public class Stadium : MonoBehaviour {
         foreach (var wave in Waves) {
 
             EnableScore = wave.Tick(Time.deltaTime);
-            if (Mathf.Abs(Mathf.Round(EnableScore)) == 100) {
+            //print(Mathf.Round(EnableScore));
+            if (Mathf.Abs(Mathf.Round(EnableScore)) < 100 && Mathf.Abs(Mathf.Round(EnableScore)) > 80) {
                 theScoreController.CanGainScore(3);
             }
-
-
-            /*for (int i = 0; i < Columns.Count; i++) {
-                foreach (var seats in Columns[i].Seats) {
-                    if ((i - wave.waveLength) < wave.wavePos && (i + wave.waveLength) > wave.wavePos) {
-                        maxes[i] = Mathf.Max((wave.waveLength - Mathf.Abs(wave.wavePos - i)) / wave.waveLength * maxYOffset, maxes[i]);
-                    }
-                }
-            }*/
         }
 
         Waves.RemoveAll(wave => wave.IsDone);
@@ -60,16 +52,5 @@ public class Stadium : MonoBehaviour {
         float startDir = Random.Range(0f, 360f);
         var wave = new Wave(Center.position, speed, cone, startDir, reversed);
         Waves.Add(wave);
-    }
-}
-
-[System.Serializable]
-public class ListWrapper {
-    public List<Seat> Seats;
-
-    public int Length {
-        get {
-            return Seats.Count;
-        }
     }
 }

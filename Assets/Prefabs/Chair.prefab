@@ -543,7 +543,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf180d9dd6d4f444e8c83a678cc929b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dude: {fileID: 1938194571575256, guid: 67b48f7f1595b3d40badad904cd3a271, type: 2}
-  playerObj: {fileID: 1749300018961320, guid: e0c7ec28d626ae746b54cb8ce337dc84, type: 2}
-  seatOffset: {x: 0.5, y: 2.5, z: 0}
+  seatOffset: {x: 0, y: 2.5, z: 0.4}
   rotationOffset: {x: 0, y: -90, z: 0}
