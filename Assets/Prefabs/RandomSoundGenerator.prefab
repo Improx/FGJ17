@@ -108,7 +108,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -136,5 +136,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 897123d904889574aae2800d955da852, type: 3}
   - {fileID: 8300000, guid: 538870d056b94c840be7716f84e8ab2f, type: 3}
   - {fileID: 8300000, guid: 2647025001176a9419031216704327af, type: 3}
+  - {fileID: 8300000, guid: 676a9ed75827142749f9d717b4a22a45, type: 3}
   minSoundCooldown: 6
   maxSoundCooldown: 12
