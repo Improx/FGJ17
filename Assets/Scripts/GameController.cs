@@ -5,6 +5,8 @@ public class GameController : MonoBehaviour {
     public GameObject DudePrefab;
     public GameObject PlayerPrefab;
 
+	public PlayerController playerReference;
+
     public EventState State;
 
     public float EventTime;

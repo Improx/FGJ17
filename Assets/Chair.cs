@@ -15,11 +15,15 @@ public class Chair : MonoBehaviour {
 	}
 
 	private void SpawnDudeOnChair(){
-		myDude = (GameObject)Instantiate (GameController.Instance.DudePrefab, transform.position + seatOffset, transform.rotation * Quaternion.Euler(rotationOffset));
+		myDude = (GameObject)Instantiate (GameController.Instance.DudePrefab);
+		myDude.transform.position = transform.position + transform.rotation * seatOffset;
+		myDude.transform.rotation = transform.rotation * Quaternion.Euler(rotationOffset);
 	}
 
 	public void SpawnPlayer(){
-		print ("spawned player!");
-		player = (GameObject)Instantiate (GameController.Instance.PlayerPrefab, transform.position + seatOffset, transform.rotation * Quaternion.Euler(rotationOffset));
+		player = (GameObject)Instantiate (GameController.Instance.PlayerPrefab);
+		player.transform.position = transform.position + transform.rotation * seatOffset;
+		player.transform.rotation = transform.rotation * Quaternion.Euler(rotationOffset);
+		GameController.Instance.playerReference = player.GetComponent<PlayerController>();
 	}
 }

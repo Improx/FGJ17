@@ -24,6 +24,7 @@ public class Dude : MonoBehaviour {
 
         DirToCenter.y = 0;
         DirToCenter.Normalize();
+		RandomizeColors ();
     }
 
     // Update is called once per frame
@@ -50,6 +51,7 @@ public class Dude : MonoBehaviour {
     }
 
 	private void RandomizeColors(){
+		print ("randomizing");
 		Color skinColor = Random.ColorHSV (skinColorRange.hueMin, skinColorRange.hueMax, skinColorRange.satMin, skinColorRange.satMax, skinColorRange.valMin, skinColorRange.valMax);
 		Color shirtColor = Random.ColorHSV (shirtColorRange.hueMin, shirtColorRange.hueMax, shirtColorRange.satMin, shirtColorRange.satMax, shirtColorRange.valMin, shirtColorRange.valMax);
 		Color pantsColor = Random.ColorHSV (pantsColorRange.hueMin, pantsColorRange.hueMax, pantsColorRange.satMin, pantsColorRange.satMax, pantsColorRange.valMin, pantsColorRange.valMax);
