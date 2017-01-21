@@ -13,7 +13,6 @@ public class Dude : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (false) {
             foreach (var wave in Stadium.Instance.Waves) {
 
                 var dir = (new Vector3(transform.position.x, 0, transform.position.z).normalized -
@@ -21,14 +20,13 @@ public class Dude : MonoBehaviour {
 
                 var angle = Vector3.Angle(dir, wave.Direction);
 
-                Debug.Log(angle);
+                //Debug.Log(angle);
                 if (angle <= wave.ConeAngle / 2) {
                     SetYOffset(2);
                 } else {
                     SetYOffset(0);
                 }
             }
-        }
     }
 
     public void SetYOffset(float offset) {

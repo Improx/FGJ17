@@ -17,7 +17,7 @@ public class StadiumSpawner : MonoBehaviour {
 	[SerializeField] private Vector2 rowOffset;
 	[SerializeField] private Vector2 midAreaSize;
 	private int currentRow;
-	private int playerRow;
+    [SerializeField] private List<GameObject> stadiumObjects;
 
 	[SerializeField] private List<GameObject> playerSpawnCandidates;
 
