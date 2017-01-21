@@ -1,5 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class PlayerController : MonoBehaviour {
 
 	private GameObject head;
@@ -14,6 +16,12 @@ public class PlayerController : MonoBehaviour {
 
     public float movementSpeed = 1.5f;
     public float turningSpeed = 60;
+
+
+    [SerializeField]
+    private AudioClip cheerSound;
+    private AudioSource myAudioSource;
+    private bool canPlayAudio = true;
 
     [SerializeField]
     private float durationToGainScore = 1f;
@@ -33,6 +41,7 @@ public class PlayerController : MonoBehaviour {
     
 
     void Start() {
+        myAudioSource = GetComponent<AudioSource>();
         theScoreController = FindObjectOfType<ScoreController>();
 
         var center = Stadium.Instance.Center.transform.position;
@@ -48,7 +57,6 @@ public class PlayerController : MonoBehaviour {
         foreach (var wave in Stadium.Instance.Waves)
         {
             angle = Vector3.Angle(-DirToCenter, wave.Direction);
-            print("Player  " + angle);
             if (angle < maxAngleToGainScore && angle > minAngleToGainScore)
             {  
                 theScoreController.CanGainScore(durationToGainScore);
@@ -59,6 +67,10 @@ public class PlayerController : MonoBehaviour {
 
         if (Input.GetButton(jumpKeyBind))
         {
+            if (myAudioSource != null && cheerSound != null && canPlayAudio) {
+                myAudioSource.PlayOneShot(cheerSound);
+                StartCoroutine(AudioCooldown(1f));
+            }
             PlayerDude.Instance.cheerer.Frame = Mathf.Lerp(PlayerDude.Instance.cheerer.Frame, 1.0f, movementSpeed * Time.deltaTime);
             if (theScoreController.CanGainScoreBool)
             {
@@ -76,4 +88,13 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+
+    private IEnumerator AudioCooldown(float duration)
+    {
+        canPlayAudio = false;
+        yield return new WaitForSeconds(duration);
+        canPlayAudio = true;
+
+
+    }
 }

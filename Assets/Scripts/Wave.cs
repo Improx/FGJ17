@@ -41,7 +41,6 @@ public class Wave {
         } else {
             DirAngle = DirAngle + delta * Speed;
         }
-
     }
 
 
