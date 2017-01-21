@@ -9,6 +9,11 @@ public class Dude : MonoBehaviour {
 	[SerializeField] private List<MeshRenderer> shirtObjects;
 	[SerializeField] private List<MeshRenderer> pantsObjects;
 
+	[SerializeField] private ColorRange skinColorRange;
+	[SerializeField] private ColorRange shirtColorRange;
+	[SerializeField] private ColorRange pantsColorRange;
+
+
     public Vector3 DirToCenter;
 
 	// Use this for initialization
