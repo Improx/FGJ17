@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 4000010972728212}
   - component: {fileID: 114000010819832322}
   m_Layer: 0
-  m_Name: Chair (copy)
+  m_Name: Chair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -547,4 +547,3 @@ MonoBehaviour:
   playerObj: {fileID: 1749300018961320, guid: e0c7ec28d626ae746b54cb8ce337dc84, type: 2}
   seatOffset: {x: 0.5, y: 2.5, z: 0}
   rotationOffset: {x: 0, y: -90, z: 0}
-  spawnPlayer: 0
