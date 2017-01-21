@@ -311,7 +311,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1938194571575256}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.0099983215, y: 2.369999, z: 0.69}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1167,7 +1167,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 219f764d428694ca480b85a13f14c043, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frame: 0
   cheer: {fileID: 7400000, guid: 32ebc2b716a01451da0354e4a1cdfd0c, type: 2}
 --- !u!114 &114970593517532372
 MonoBehaviour:
@@ -1180,7 +1179,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de3b4348c6fa4924cb6bb6000056afe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pos: {x: 0, y: 0, z: 0}
   skinObjects: []
   shirtObjects: []
   pantsObjects: []
@@ -1206,3 +1204,4 @@ MonoBehaviour:
     valMin: 0
     valMax: 0
   DirToCenter: {x: 0, y: 0, z: 0}
+  cheerer: {fileID: 114685298870980894}

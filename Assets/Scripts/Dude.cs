@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Dude : MonoBehaviour {
-
-    public Vector3 pos;
 	[SerializeField] private List<MeshRenderer> skinObjects;
 	[SerializeField] private List<MeshRenderer> shirtObjects;
 	[SerializeField] private List<MeshRenderer> pantsObjects;
@@ -20,7 +18,6 @@ public class Dude : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        pos = transform.position;
 
         var center = Stadium.Instance.Center.transform.position;
         DirToCenter = (center - transform.position).normalized;
