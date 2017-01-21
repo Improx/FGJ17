@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -132,5 +131,4 @@ public class Stadium : MonoBehaviour {
         var wave = new Wave(Center.position, speed, cone, startDir, reversed);
         Waves.Add(wave);
     }
->>>>>>> master
 }
