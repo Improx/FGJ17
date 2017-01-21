@@ -34,6 +34,13 @@ public class ScoreController : MonoBehaviour {
         get { return canGainScoreBool; }
     }
 
+    public bool isShamed;
+    public float currentShame;
+    [SerializeField]
+    private float shameLimit;
+    [SerializeField]
+    private float shameReducedPerFrame;
+
     private static ScoreController instance;
     public static ScoreController Instance
     {
@@ -54,8 +61,12 @@ public class ScoreController : MonoBehaviour {
             UpdateScore();
         }
     }
-	
 
+    void Update() {
+        if (!isShamed && currentShame >= 0) {
+            currentShame -= shameReducedPerFrame * Time.deltaTime;
+        }
+    }
 
     public void addScore(float scoreToAdd) {
         score += scoreToAdd;
@@ -79,11 +90,24 @@ public class ScoreController : MonoBehaviour {
         {
             UpdateScore();
         }
-
-		GameController.Instance.AllNPCsLookAtPlayer (score.Scale(minScore,maxScore, 10f,50f));
+        
+        StackingShame(scoreToreduce);
+		//GameController.Instance.AllNPCsLookAtPlayer (score.Scale(minScore,maxScore, 10f,50f));
     }
 
+    private void StackingShame(float shameToAdd) {
+        currentShame += shameToAdd;
+        if (currentShame >= shameLimit) {
+            currentShame = shameLimit;
+            GameController.Instance.AllNPCsLookAtPlayer(score.Scale(minScore, maxScore, 10f, 50f));
+        }
+    }
+
+
     public void endGame() {
+        if (score <= minScore) {
+            print("You lost");
+        }
 
     }
 

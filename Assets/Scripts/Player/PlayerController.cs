@@ -31,6 +31,12 @@ public class PlayerController : MonoBehaviour {
     private float maxAngleToGainScore = 20f;
 
     [SerializeField]
+    private float scoreGainPerFrame = 20;
+    [SerializeField]
+    private float scoreReducedPerFrame = 10;
+
+
+    [SerializeField]
     private string jumpKeyBind = "Jump";
 
     [SerializeField]
@@ -38,7 +44,20 @@ public class PlayerController : MonoBehaviour {
 
     public Vector3 DirToCenter;
     private float angle;
-    
+
+    private static PlayerController instance;
+    public static PlayerController Instance
+    {
+        get
+        {
+            if (!instance)
+            {
+                instance = GameObject.FindObjectOfType<PlayerController>();
+            }
+
+            return instance;
+        }
+    }
 
     void Start() {
         myAudioSource = GetComponent<AudioSource>();
@@ -74,16 +93,22 @@ public class PlayerController : MonoBehaviour {
             PlayerDude.Instance.cheerer.Frame = Mathf.Lerp(PlayerDude.Instance.cheerer.Frame, 1.0f, movementSpeed * Time.deltaTime);
             if (theScoreController.CanGainScoreBool)
             {
-                theScoreController.addScore(1);
+                theScoreController.addScore(scoreGainPerFrame * Time.deltaTime);
+                theScoreController.isShamed = false;
             }
             else {
-                theScoreController.reduceScore(1);
+                theScoreController.reduceScore(scoreReducedPerFrame * Time.deltaTime);
+                theScoreController.isShamed = true;
             }
         } else {
             PlayerDude.Instance.cheerer.Frame = Mathf.Lerp(PlayerDude.Instance.cheerer.Frame, 0.0f, movementSpeed * Time.deltaTime);
             if (theScoreController.CanGainScoreBool)
             {
-                theScoreController.reduceScore(1);
+                theScoreController.reduceScore(scoreReducedPerFrame * Time.deltaTime);
+                theScoreController.isShamed = true;
+            }
+            else {
+                theScoreController.isShamed = false;
             }
         }
     }

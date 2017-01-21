@@ -25,6 +25,9 @@ public class GameController : MonoBehaviour {
     }
 
     public int Points;
+
+
+    private bool abouttostartwave = false;
 	// Use this for initialization
 	void Start () {
         changeState(EventState.Wait);
@@ -33,7 +36,9 @@ public class GameController : MonoBehaviour {
 
 	public void AllNPCsLookAtPlayer(float range){
 		StartCoroutine (npcShame (range));
-	}
+        ScoreController.Instance.isShamed = false;
+        ScoreController.Instance.currentShame = 0;
+    }
 
 	private IEnumerator npcShame(float range){
 		yield return new WaitForSeconds (0.5f);
@@ -46,17 +51,19 @@ public class GameController : MonoBehaviour {
 				}
 			}
 		}
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
         switch (State) {
             case EventState.Wait:
-                /*if (EventTime + 5 < Time.time) {
+                /*if (Input.GetKeyDown(KeyCode.E)) {
                     changeState(EventState.Idle);
                 }*/
-                if (Input.GetKeyDown(KeyCode.E)) {
-                    changeState(EventState.Idle);
+                float cooldown = Random.Range(5, 10);
+                if (!abouttostartwave) {
+                    StartCoroutine(StartWave(cooldown));
                 }
                 break;
             case EventState.Idle:
@@ -84,6 +91,17 @@ public class GameController : MonoBehaviour {
     public void ChangePoints(int change) {
 
     }
+    private IEnumerator StartWave(float cooldown)
+    {
+
+        abouttostartwave = true;
+
+        yield return new WaitForSeconds(cooldown);
+        abouttostartwave = false;
+        if (State == EventState.Wait) {
+            State = EventState.Idle;
+        }
+    }
 }
 
 public enum EventState {
@@ -91,4 +109,5 @@ public enum EventState {
     Idle,
     Waves
 }
+
 
