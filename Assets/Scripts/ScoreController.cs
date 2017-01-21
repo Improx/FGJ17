@@ -79,6 +79,8 @@ public class ScoreController : MonoBehaviour {
         {
             UpdateScore();
         }
+
+		GameController.Instance.AllNPCsLookAtPlayer ();
     }
 
     public void endGame() {
