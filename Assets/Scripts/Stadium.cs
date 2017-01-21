@@ -36,9 +36,6 @@ public class Stadium : MonoBehaviour {
 
             EnableScore = wave.Tick(Time.deltaTime);
             //print(Mathf.Round(EnableScore));
-            if (Mathf.Abs(Mathf.Round(EnableScore)) < 100 && Mathf.Abs(Mathf.Round(EnableScore)) > 80) {
-                theScoreController.CanGainScore(3);
-            }
 
 
             /*for (int i = 0; i < Columns.Count; i++) {
@@ -59,6 +56,11 @@ public class Stadium : MonoBehaviour {
         float cone = Random.Range(15f, 25f);
         float speed = Random.Range(10f, 30f);
         float startDir = Random.Range(0f, 360f);
+        print(startDir);
+        //Vector3 k = new Vector3(Mathf.Sin(Mathf.Deg2Rad * startDir), 0, Mathf.Cos(Mathf.Deg2Rad * startDir)).normalized;
+        float kaa = (Center.position.z - PlayerDude.Instance.transform.position.z) / (Center.position.x - PlayerDude.Instance.transform.position.x);
+        //print(k);
+        print(kaa);
         var wave = new Wave(Center.position, speed, cone, startDir, reversed);
         Waves.Add(wave);
     }
