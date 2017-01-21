@@ -18,6 +18,7 @@ public class Chair : MonoBehaviour {
 		myDude = (GameObject)Instantiate (GameController.Instance.DudePrefab);
 		myDude.transform.position = transform.position + transform.rotation * seatOffset;
 		myDude.transform.rotation = transform.rotation * Quaternion.Euler(rotationOffset);
+		GameController.Instance.dudes.Add (myDude.GetComponent<Dude>());
 	}
 
 	public void SpawnPlayer(){
