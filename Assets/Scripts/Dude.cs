@@ -9,21 +9,26 @@ public class Dude : MonoBehaviour {
 	[SerializeField] private List<MeshRenderer> shirtObjects;
 	[SerializeField] private List<MeshRenderer> pantsObjects;
 
+    public Vector3 DirToCenter;
+
 	// Use this for initialization
 	void Start () {
         pos = transform.position;
-	}
-	
-	// Update is called once per frame
-	void Update () {
+
+        var center = Stadium.Instance.Center.transform.position;
+        DirToCenter = (center - transform.position).normalized;
+
+        DirToCenter.y = 0;
+        DirToCenter.Normalize();
+    }
+
+    // Update is called once per frame
+    void Update () {
             foreach (var wave in Stadium.Instance.Waves) {
 
-                var dir = (new Vector3(transform.position.x, 0, transform.position.z).normalized -
-                    new Vector3(wave.Origin.x, 0, wave.Origin.z).normalized).normalized;
-
-                var angle = Vector3.Angle(dir, wave.Direction);
-
-                //Debug.Log(angle);
+                
+                var angle = Vector3.Angle(-DirToCenter, wave.Direction);
+            
                 if (angle <= wave.ConeAngle / 2) {
                     SetYOffset(2);
                 } else {
@@ -39,4 +44,12 @@ public class Dude : MonoBehaviour {
 	private void RandomizeColors(){
 		
 	}
+
+    /*private void OnDrawGizmosSelected() {
+        Gizmos.color = Color.red;
+        float len = Vector3.Distance(transform.position, Stadium.Instance.Center.transform.position);
+
+        Gizmos.DrawLine(transform.position, transform.position + DirToCenter * len);
+
+    }*/
 }
