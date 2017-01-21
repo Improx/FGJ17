@@ -52,7 +52,7 @@ public class Stadium : MonoBehaviour {
     }
 
     public void GenerateRandomWave() {
-        bool reversed = Random.Range(0, 10.0f) > 0.5f;
+        bool reversed = Random.Range(0, 10.0f) > 5.0f;
 
         float cone = Random.Range(15f, 25f);
         float speed = Random.Range(10f, 30f);
