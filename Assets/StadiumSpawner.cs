@@ -18,7 +18,7 @@ public class StadiumSpawner : MonoBehaviour {
 		SpawnStadium ();
 	}
 
-	private void SpawnStadium(){
+	public void SpawnStadium(){
 		for (int i = 0; i < rowAmount; i++) {
 			SpawnRectangle (i);
 		}
