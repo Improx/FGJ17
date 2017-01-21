@@ -20,7 +20,7 @@ public class GoalController : MonoBehaviour {
 
     void OnTriggerEnter(Collider other) {
         if (other.tag == "Football") {
-            print("Score!!");
+            //print("Score!!");
 			Instance.GenerateRandomWave ();
             other.transform.position = ballPosition;
         }
