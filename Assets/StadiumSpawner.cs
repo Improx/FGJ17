@@ -16,7 +16,8 @@ public class StadiumSpawner : MonoBehaviour {
 	[SerializeField] private int rowAmount;
 	[SerializeField] private Vector2 rowOffset;
 	[SerializeField] private Vector2 midAreaSize;
-	private int playerRow;
+	[SerializeField] private int playerRowMinFromBottom;
+	[SerializeField] private int playerRowMaxFromTop;
 	private int currentRow;
 	private Vector3 offsetFromCenter;
 
@@ -30,15 +31,13 @@ public class StadiumSpawner : MonoBehaviour {
 	public void SpawnStadium(){
 		playerSpawnCandidates = new List<GameObject> ();
 
-		playerRow = Random.Range (3, rowAmount);
-
 		ClearStadium ();
 
 		stadiumParent = GetCenterObject ().transform;
 
 		offsetFromCenter = Vector3.left * midAreaSize.x / 2 + Vector3.back * midAreaSize.y / 2;
 		for (int i = 0; i < rowAmount; i++) {
-			if (i == playerRow) {
+			if (i >= playerRowMinFromBottom && i <= rowAmount-playerRowMaxFromTop) {
 				SpawnRectangle (i, true);
 			} else {
 				SpawnRectangle (i);
@@ -61,6 +60,7 @@ public class StadiumSpawner : MonoBehaviour {
 		SpawnBlock (offsetFromCenter + Vector3.forward * midAreaSize.y + new Vector3(0,rowOffset.y * row, rowOffset.x * row) + Vector3.right * xAmount/2, Vector3.up*180);
 		//right
 		SpawnBlock (offsetFromCenter + Vector3.right * midAreaSize.x + new Vector3(rowOffset.x * row, rowOffset.y * row, 0) + Vector3.forward * xAmount/2, Vector3.up*-90);
+
 
 		//bottom
 		SpawnRow (offsetFromCenter + new Vector3(-chairWidth*row, rowOffset.y * row, -rowOffset.x * row), Vector3.right, xAmount + 5*row, Vector3.zero, true&&spawnPlayer);
@@ -89,7 +89,6 @@ public class StadiumSpawner : MonoBehaviour {
 			}
 		}
 	}
-	//asd
 
 	private void SpawnBlock(Vector3 pos, Vector3 rot){
 		GameObject g = (GameObject) Instantiate (floorBlock, pos, Quaternion.Euler(rot));
