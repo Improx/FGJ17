@@ -8,9 +8,9 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     private float durationToGainScore = 1f;
     [SerializeField]
-    private float minAngleToGainScore = 20f;
+    private float minAngleToGainScore = 0f;
     [SerializeField]
-    private float maxAngleToGainScore = 35f;
+    private float maxAngleToGainScore = 20f;
 
     [SerializeField]
     private string jumpKeyBind = "Jump";
@@ -45,6 +45,8 @@ public class PlayerController : MonoBehaviour {
             }
         }
 
+
+
         if (Input.GetButton(jumpKeyBind))
         {
             PlayerDude.Instance.cheerer.Frame = Mathf.Lerp(PlayerDude.Instance.cheerer.Frame, 1.0f, movementSpeed * Time.deltaTime);
@@ -57,6 +59,10 @@ public class PlayerController : MonoBehaviour {
             }
         } else {
             PlayerDude.Instance.cheerer.Frame = Mathf.Lerp(PlayerDude.Instance.cheerer.Frame, 0.0f, movementSpeed * Time.deltaTime);
+            if (theScoreController.CanGainScoreBool)
+            {
+                theScoreController.reduceScore(1);
+            }
         }
     }
 
