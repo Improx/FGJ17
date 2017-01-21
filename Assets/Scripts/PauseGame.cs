@@ -24,4 +24,12 @@ print("ldas");
             }
         }	
 	}
+    
+    public void CloseOnResume() 
+    {
+        if (canvas.gameObject.activeInHierarchy == true){
+            canvas.gameObject.SetActive(false);
+            Time.timeScale = 1;
+        }
+    }
 }
