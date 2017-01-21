@@ -16,8 +16,8 @@ public class StadiumSpawner : MonoBehaviour {
 	[SerializeField] private int rowAmount;
 	[SerializeField] private Vector2 rowOffset;
 	[SerializeField] private Vector2 midAreaSize;
+	private int playerRow;
 	private int currentRow;
-    [SerializeField] private List<GameObject> stadiumObjects;
 
 	[SerializeField] private List<GameObject> playerSpawnCandidates;
 
@@ -27,8 +27,6 @@ public class StadiumSpawner : MonoBehaviour {
 		playerSpawnCandidates [i].GetComponent<Chair> ().SpawnPlayer();
 		print (i);
 	}
-=======
->>>>>>> Stashed changes
 
 	public void SpawnStadium(){
 		playerSpawnCandidates = new List<GameObject> ();
@@ -78,6 +76,7 @@ public class StadiumSpawner : MonoBehaviour {
 			}
 		}
 	}
+	//asd
 
 	private void SpawnBlock(Vector3 pos, Vector3 rot){
 		GameObject g = (GameObject) Instantiate (floorBlock, pos, Quaternion.Euler(rot));
