@@ -1,43 +1,41 @@
 ﻿
+using UnityEngine;
+
 [System.Serializable]
 public class Wave {
-    public float wavePos;
-    public float waveSpeed;
-    public float waveLength;
-    public bool reverse;
-    
-    public Wave(float speed, float length, bool rev) {
-        waveLength = length;
-        waveSpeed = speed;
-        reverse = rev;
-        if (reverse) {
-            wavePos = Stadium.Instance.rowLength + waveLength;
-        } else {
-            wavePos = -waveLength;
-        }
-    }
+    public Vector3 Origin;
+    public float DirAngle;
+    public float Speed;
+    public float ConeAngle;
+    public bool Reverse;
 
-    public Wave(float pos, float speed, float length) {
-        waveLength = length;
-        waveSpeed = speed;
-        wavePos = pos;
+    public Wave(Vector3 origin, float speed, float cone, float dirAngle, bool rev) {
+        Origin = origin;
+        ConeAngle = cone;
+        Speed = speed;
+        DirAngle = dirAngle;
+        Reverse = rev;
+
+        WaveVisualizer.Instance.wave = this;
     }
 
     public bool IsDone {
         get {
-            if (reverse) {
-                return wavePos <= -waveLength;
-            } else {
-                return wavePos >= (Stadium.Instance.rowLength + waveLength);
-            }
+            return false;
         }
     }
 
     public void Tick (float delta) {
-        if (reverse) {
-            wavePos = wavePos - delta * waveSpeed;
+        if (Reverse) {
+            DirAngle = DirAngle - delta * Speed;
         } else {
-            wavePos = wavePos + delta * waveSpeed;
+            DirAngle = DirAngle + delta * Speed;
+        }
+    }
+
+    public Vector3 Direction {
+        get {
+            return new Vector3(Mathf.Sin(Mathf.Deg2Rad * DirAngle), 0, Mathf.Cos(Mathf.Deg2Rad * DirAngle)).normalized;
         }
     }
 }
