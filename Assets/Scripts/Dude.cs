@@ -29,17 +29,19 @@ public class Dude : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-            foreach (var wave in Stadium.Instance.Waves) {
+
+        float offset = 0;
+        foreach (var wave in Stadium.Instance.Waves) {
 
                 
-                var angle = Vector3.Angle(-DirToCenter, wave.Direction);
+            var angle = Vector3.Angle(-DirToCenter, wave.Direction);
             
-                if (angle <= wave.ConeAngle / 2) {
-                    SetYOffset(2);
-                } else {
-                    SetYOffset(0);
-                }
+            if (angle <= wave.ConeAngle / 2) {
+                
+                offset = (1-(angle / (wave.ConeAngle / 2)))*2;
             }
+        }
+        SetYOffset(offset);
     }
 
     public void SetYOffset(float offset) {
