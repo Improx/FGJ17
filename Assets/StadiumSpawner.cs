@@ -76,6 +76,7 @@ public class StadiumSpawner : MonoBehaviour {
 			}
 		}
 	}
+	//asd
 
 	private void SpawnBlock(Vector3 pos, Vector3 rot){
 		GameObject g = (GameObject) Instantiate (floorBlock, pos, Quaternion.Euler(rot));

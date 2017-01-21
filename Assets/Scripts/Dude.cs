@@ -5,6 +5,9 @@ using UnityEngine;
 public class Dude : MonoBehaviour {
 
     public Vector3 pos;
+	[SerializeField] private List<MeshRenderer> skinObjects;
+	[SerializeField] private List<MeshRenderer> shirtObjects;
+	[SerializeField] private List<MeshRenderer> pantsObjects;
 
 	// Use this for initialization
 	void Start () {
@@ -34,4 +37,8 @@ public class Dude : MonoBehaviour {
     public void SetYOffset(float offset) {
         transform.position = pos + new Vector3(0, offset, 0);
     }
+
+	private void RandomizeColors(){
+		
+	}
 }
