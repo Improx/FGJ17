@@ -6,6 +6,8 @@ public class GameController : MonoBehaviour {
 
     public EventState State;
 
+    public float EventTime;
+
     private static GameController instance;
     public static GameController Instance {
         get {
@@ -19,27 +21,38 @@ public class GameController : MonoBehaviour {
     public int Points;
 	// Use this for initialization
 	void Start () {
-        State = EventState.Idle;
-	}
+        changeState(EventState.Wait);
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
         switch (State) {
+            case EventState.Wait:
+                if (EventTime + 5 < Time.time) {
+                    changeState(EventState.Idle);
+                }
+                break;
             case EventState.Idle:
                 if (Random.Range(0, 100) < 10) {
-                    State = EventState.Waves;
+                    changeState(EventState.Waves);
 
                     Stadium.Instance.GenerateRandomWave();
                 }
                 break;
             case EventState.Waves:
                 if (Stadium.Instance.Waves.Count == 0) {
-                    State = EventState.Idle;
+                    changeState(EventState.Wait);
                 }
                 break;
             default:
                 break;
         }
+    }
+
+    void changeState (EventState newState) {
+        State = newState;
+        EventTime = Time.time;
     }
 
     public void ChangePoints(int change) {
@@ -48,6 +61,7 @@ public class GameController : MonoBehaviour {
 }
 
 public enum EventState {
+    Wait,
     Idle,
     Waves
 }
