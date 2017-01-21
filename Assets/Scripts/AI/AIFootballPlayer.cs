@@ -14,11 +14,9 @@ public class AIFootballPlayer : MonoBehaviour {
     [SerializeField]
     private float maxTimeToChangeDirection;
 
-    private Rigidbody myRigidbody;
 
 
 	void Start () {
-        myRigidbody = GetComponent<Rigidbody>();
         float newCoolDown = Random.Range(minTimeToChangeDirection, maxTimeToChangeDirection);
         float newDirection = Random.Range(0, 360);
         StartCoroutine(changeDirection(newCoolDown, newDirection));
@@ -40,12 +38,6 @@ public class AIFootballPlayer : MonoBehaviour {
 
     }
 
-
-    void OnTriggerStay(Collider other) {
-        if (other.tag == "Area") {
-
-        }
-    }
 
 
 }

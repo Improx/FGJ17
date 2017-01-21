@@ -10,6 +10,9 @@ public class Wave {
     public bool Reverse;
 
     private float startAngle;
+
+
+
     public Wave(Vector3 origin, float speed, float cone, float dirAngle, bool rev) {
         Origin = origin;
         ConeAngle = cone;
@@ -32,7 +35,7 @@ public class Wave {
         }
     }
 
-    public void Tick (float delta) {
+    /*public void Tick (float delta) {
         if (Reverse) {
             DirAngle = DirAngle - delta * Speed;
             Debug.Log("reverse " + Mathf.Abs(DirAngle - startAngle));
@@ -40,7 +43,23 @@ public class Wave {
             DirAngle = DirAngle + delta * Speed;
             Debug.Log("normal " + (DirAngle - startAngle));
         }
+
+    }*/
+
+    public float Tick(float delta)
+    {
+        if (Reverse)
+        {
+            DirAngle = DirAngle - delta * Speed;
+            //Debug.Log("reverse " + Mathf.Abs(DirAngle - startAngle));
+        }
+        else {
+            DirAngle = DirAngle + delta * Speed;
+            //Debug.Log("normal " + (DirAngle - startAngle));
+        }
+        return DirAngle;
     }
+
 
     public Vector3 Direction {
         get {
