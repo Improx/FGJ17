@@ -14,10 +14,10 @@ public class MouseAimCamera : MonoBehaviour
     public float viewRange = 60.0f;
     float rotationY = 0F;
 
-    private Transform cameraTransform;
+    //private Transform cameraTransform;
     void Start()
     {
-        cameraTransform = Camera.main.transform;
+        //cameraTransform = Camera.main.transform;
     }
 
     // Update is called once per frame

@@ -28,23 +28,19 @@ public class ScoreController : MonoBehaviour {
 
     public event Action UpdateScore;
 
-	void Start () {
+    private bool canGainScoreBool;
+    public bool CanGainScoreBool
+    {
+        get { return canGainScoreBool; }
+    }
+
+    void Start () {
         if (UpdateScore != null)
         {
             UpdateScore();
         }
     }
 	
-	// Update is called once per frame
-	void Update () {
-        if (Input.GetKeyDown(KeyCode.Q)) {
-            addScore(1);
-        }
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            reduceScore(1);
-        }
-    }
 
 
     public void addScore(float scoreToAdd) {
@@ -74,6 +70,19 @@ public class ScoreController : MonoBehaviour {
     }
 
     public void endGame() {
+
+    }
+
+    public void CanGainScore(float duration) {
+        StartCoroutine(CanGainScoreIENumerator(duration));
+        print("Can gain score");
+    }
+
+    private IEnumerator CanGainScoreIENumerator(float duration)
+    {
+        canGainScoreBool = true;
+        yield return new WaitForSeconds(duration);
+        canGainScoreBool = false;
 
     }
 }

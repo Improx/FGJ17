@@ -19,9 +19,14 @@ public class Stadium : MonoBehaviour {
         }
     }
 
+    [SerializeField]
+    private float EnableScore;
+    private ScoreController theScoreController;
+
     // Use this for initialization
     void Start () {
         Waves = new List<Wave>();
+        theScoreController = FindObjectOfType<ScoreController>();
     }
 	
 	// Update is called once per frame
@@ -29,8 +34,10 @@ public class Stadium : MonoBehaviour {
         
         foreach (var wave in Waves) {
 
-            wave.Tick(Time.deltaTime);
-
+            EnableScore = wave.Tick(Time.deltaTime);
+            if (Mathf.Abs(Mathf.Round(EnableScore)) == 100) {
+                theScoreController.CanGainScore(3);
+            }
 
 
             /*for (int i = 0; i < Columns.Count; i++) {
