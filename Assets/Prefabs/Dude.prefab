@@ -331,7 +331,7 @@ Transform:
   m_GameObject: {fileID: 1938194571575256}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4466468531181492}
   - {fileID: 4354422489305660}
@@ -1263,29 +1263,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de3b4348c6fa4924cb6bb6000056afe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skinObjects: []
-  shirtObjects: []
-  pantsObjects: []
+  skinObjects:
+  - {fileID: 23181094491032722}
+  - {fileID: 23905974146684856}
+  - {fileID: 23434935423947844}
+  - {fileID: 23727342297143660}
+  - {fileID: 23491450853563150}
+  - {fileID: 23577629624858464}
+  shirtObjects:
+  - {fileID: 23604304230461230}
+  - {fileID: 23683277977718682}
+  - {fileID: 23874221938668812}
+  pantsObjects:
+  - {fileID: 23329120174902568}
+  - {fileID: 23000320324336706}
+  - {fileID: 23535591488016616}
+  - {fileID: 23257079868567628}
   skinColorRange:
-    hueMin: 0
-    hueMax: 0
-    satMin: 0
-    satMax: 0
-    valMin: 0
-    valMax: 0
+    hueMin: 0.1
+    hueMax: 0.1
+    satMin: 0.5
+    satMax: 0.5
+    valMin: 0.2
+    valMax: 1
   shirtColorRange:
     hueMin: 0
-    hueMax: 0
-    satMin: 0
-    satMax: 0
-    valMin: 0
-    valMax: 0
+    hueMax: 1
+    satMin: 1
+    satMax: 1
+    valMin: 1
+    valMax: 1
   pantsColorRange:
-    hueMin: 0
-    hueMax: 0
-    satMin: 0
-    satMax: 0
-    valMin: 0
-    valMax: 0
+    hueMin: 0.6
+    hueMax: 0.7
+    satMin: 0.8
+    satMax: 0.8
+    valMin: 1
+    valMax: 1
   DirToCenter: {x: 0, y: 0, z: 0}
   cheerer: {fileID: 114685298870980894}
