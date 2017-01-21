@@ -16,7 +16,7 @@ public class Wave {
         DirAngle = dirAngle;
         Reverse = rev;
 
-        WaveVisualizer.Instance.wave = this;
+        //WaveVisualizer.Instance.wave = this;
     }
 
     public bool IsDone {

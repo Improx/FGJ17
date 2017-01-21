@@ -6,11 +6,6 @@ using UnityEngine;
 public class WaveVisualizer : MonoBehaviour {
 
     public float length;
-    
-
-    public Transform targetC;
-    public Transform targetR;
-    public Transform targetL;
 
     private static WaveVisualizer instance;
     public static WaveVisualizer Instance {
@@ -31,16 +26,6 @@ public class WaveVisualizer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-        var dirAngle = wave.DirAngle;
-        var coneAngle = wave.ConeAngle;
-        var direcion = new Vector3(Mathf.Sin(Mathf.Deg2Rad * dirAngle), 0, Mathf.Cos(Mathf.Deg2Rad * dirAngle));
-        var direcionL = new Vector3(Mathf.Sin(Mathf.Deg2Rad * (dirAngle + coneAngle / 2f)), 0, Mathf.Cos(Mathf.Deg2Rad * (dirAngle + coneAngle / 2f)));
-        var direcionR = new Vector3(Mathf.Sin(Mathf.Deg2Rad * (dirAngle - coneAngle / 2f)), 0, Mathf.Cos(Mathf.Deg2Rad * (dirAngle - coneAngle / 2f)));
-
-        targetC.position = transform.position + direcion.normalized * length;
-        targetL.position = transform.position + direcionL.normalized * length;
-        targetR.position = transform.position + direcionR.normalized * length;
     }
 
     private void OnDrawGizmos() {

@@ -9,35 +9,32 @@ public class Dude : MonoBehaviour {
 	[SerializeField] private List<MeshRenderer> shirtObjects;
 	[SerializeField] private List<MeshRenderer> pantsObjects;
 
-	[SerializeField] private ColorRange skinColorRange;
-	[SerializeField] private ColorRange shirtColorRange;
-	[SerializeField] private ColorRange pantsColorRange;
-
+    public Vector3 DirToCenter;
 
 	// Use this for initialization
 	void Start () {
         pos = transform.position;
-		RandomizeColors ();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		if (Stadium.Instance != null) {
-			foreach (var wave in Stadium.Instance.Waves) {
 
-				var dir = (new Vector3 (transform.position.x, 0, transform.position.z).normalized -
-				                      new Vector3 (wave.Origin.x, 0, wave.Origin.z).normalized).normalized;
+        var center = Stadium.Instance.Center.transform.position;
+        DirToCenter = (center - transform.position).normalized;
 
-				var angle = Vector3.Angle (dir, wave.Direction);
+        DirToCenter.y = 0;
+        DirToCenter.Normalize();
+    }
 
-				//Debug.Log(angle);
-				if (angle <= wave.ConeAngle / 2) {
-					SetYOffset (2);
-				} else {
-					SetYOffset (0);
-				}
-			}
-		}
+    // Update is called once per frame
+    void Update () {
+            foreach (var wave in Stadium.Instance.Waves) {
+
+                
+                var angle = Vector3.Angle(-DirToCenter, wave.Direction);
+            
+                if (angle <= wave.ConeAngle / 2) {
+                    SetYOffset(2);
+                } else {
+                    SetYOffset(0);
+                }
+            }
     }
 
     public void SetYOffset(float offset) {
@@ -61,6 +58,14 @@ public class Dude : MonoBehaviour {
 			m.material.color = pantsColor;
 		}
 	}
+
+    /*private void OnDrawGizmosSelected() {
+        Gizmos.color = Color.red;
+        float len = Vector3.Distance(transform.position, Stadium.Instance.Center.transform.position);
+
+        Gizmos.DrawLine(transform.position, transform.position + DirToCenter * len);
+
+    }*/
 }
 
 [System.Serializable]
