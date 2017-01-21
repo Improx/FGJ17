@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Dude : MonoBehaviour {
-
-    public Vector3 pos;
 	[SerializeField] private List<MeshRenderer> skinObjects;
 	[SerializeField] private List<MeshRenderer> shirtObjects;
 	[SerializeField] private List<MeshRenderer> pantsObjects;
@@ -16,9 +14,10 @@ public class Dude : MonoBehaviour {
 
     public Vector3 DirToCenter;
 
+    public Cheer cheerer;
+
 	// Use this for initialization
 	void Start () {
-        pos = transform.position;
 
         var center = Stadium.Instance.Center.transform.position;
         DirToCenter = (center - transform.position).normalized;
@@ -38,14 +37,16 @@ public class Dude : MonoBehaviour {
             
             if (angle <= wave.ConeAngle / 2) {
                 
-                offset = (1-(angle / (wave.ConeAngle / 2)))*2;
+                offset = (1-(angle / (wave.ConeAngle / 2)));
             }
         }
         SetYOffset(offset);
     }
 
     public void SetYOffset(float offset) {
-        transform.position = pos + new Vector3(0, offset, 0);
+        if (cheerer) {
+            cheerer.Frame = offset;
+        }
     }
 
 	private void RandomizeColors(){
