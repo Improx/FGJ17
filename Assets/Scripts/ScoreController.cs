@@ -80,7 +80,7 @@ public class ScoreController : MonoBehaviour {
             UpdateScore();
         }
 
-		GameController.Instance.AllNPCsLookAtPlayer ();
+		GameController.Instance.AllNPCsLookAtPlayer (score.Scale(minScore,maxScore, 10f,50f));
     }
 
     public void endGame() {

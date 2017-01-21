@@ -31,15 +31,19 @@ public class GameController : MonoBehaviour {
 
     }
 
-	public void AllNPCsLookAtPlayer(){
-		StartCoroutine (npcShame ());
+	public void AllNPCsLookAtPlayer(float range){
+		StartCoroutine (npcShame (range));
 	}
 
-	private IEnumerator npcShame(){
+	private IEnumerator npcShame(float range){
 		yield return new WaitForSeconds (0.5f);
 		foreach (Dude d in dudes) {
-			if (Mathf.Abs ((d.gameObject.transform.position - GameController.Instance.playerReference.transform.position).magnitude) < 20f) {
-				d.LookAtPlayer ();
+			if (Mathf.Abs ((d.gameObject.transform.position - GameController.Instance.playerReference.transform.position).magnitude) < range) {
+				if (ScoreController.Instance.Score < ScoreController.Instance.MinScore/2) {
+					d.LookAtPlayer ("angry");
+				} else {
+					d.LookAtPlayer ("wtf");
+				}
 			}
 		}
 	}

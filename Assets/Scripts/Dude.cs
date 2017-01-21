@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Dude : MonoBehaviour {
 	[SerializeField] private GameObject head;
+	[SerializeField] private MeshRenderer face;
 	[SerializeField] private List<MeshRenderer> skinObjects;
 	[SerializeField] private List<MeshRenderer> shirtObjects;
 	[SerializeField] private List<MeshRenderer> pantsObjects;
@@ -11,6 +12,8 @@ public class Dude : MonoBehaviour {
 	[SerializeField] private ColorRange skinColorRange;
 	[SerializeField] private ColorRange shirtColorRange;
 	[SerializeField] private ColorRange pantsColorRange;
+
+	[SerializeField] private List<FaceStyle> faces;
 
     public Vector3 DirToCenter;
 
@@ -55,13 +58,18 @@ public class Dude : MonoBehaviour {
 			unShameTimer -= Time.deltaTime;
 
 			if (lookingAt != GameController.Instance.playerReference.Head.transform.rotation) {
-				LookAtPlayer (false);
+				if (ScoreController.Instance.Score < ScoreController.Instance.MinScore/2) {
+					LookAtPlayer ("angry", false);
+				} else {
+					LookAtPlayer ("wtf", false);
+				}
 			}
 		}
 
 		if (unShameTimer < 0) {
 			Shaming = false;
 			head.transform.rotation = Quaternion.Euler(defaultHeadRot);
+			SetExpression ("neutral");
 		}
     }
 
@@ -70,6 +78,11 @@ public class Dude : MonoBehaviour {
             cheerer.Frame = offset;
         }
     }
+
+	public void SetExpression(string exp){
+		Texture t = faces.Find (x => x.name == exp).face;
+		face.material.mainTexture = t;
+	}
 
 	private void RandomizeColors(){
 		Color skinColor = Random.ColorHSV (skinColorRange.hueMin, skinColorRange.hueMax, skinColorRange.satMin, skinColorRange.satMax, skinColorRange.valMin, skinColorRange.valMax);
@@ -89,17 +102,18 @@ public class Dude : MonoBehaviour {
 		}
 	}
 
-	public void LookAt(Vector3 pos, bool resetShameTime = true){
+	public void LookAt(Vector3 pos, string expression, bool resetShameTime = true){
 		lookingAt = Quaternion.LookRotation (pos - transform.position) * Quaternion.Euler (-Vector3.up * 90);
 		head.transform.rotation = lookingAt;
 		Shaming = true;
+		SetExpression (expression);
 
 		if(resetShameTime)
 			unShameTimer = unShameTime;
 	}
 
-	public void LookAtPlayer(bool resetShameTime = true){
-		LookAt (GameController.Instance.playerReference.Head.transform.position, resetShameTime);
+	public void LookAtPlayer(string exp, bool resetShameTime = true){
+		LookAt (GameController.Instance.playerReference.Head.transform.position, exp, resetShameTime);
 	}
 
 
@@ -120,4 +134,10 @@ public class ColorRange{
 	public float satMax;
 	public float valMin;
 	public float valMax;
+}
+
+[System.Serializable]
+public class FaceStyle{
+	public string name;
+	public Texture face;
 }
