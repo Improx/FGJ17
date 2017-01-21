@@ -50,7 +50,8 @@ public class Stadium : MonoBehaviour {
 
         float cone = Random.Range(15f, 25f);
         float speed = Random.Range(10f, 30f);
-        var wave = new Wave(Center.position, speed, cone, 0, reversed);
+        float startDir = Random.Range(0f, 360f);
+        var wave = new Wave(Center.position, speed, cone, startDir, reversed);
         Waves.Add(wave);
     }
 }
