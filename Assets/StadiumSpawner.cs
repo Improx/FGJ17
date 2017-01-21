@@ -131,9 +131,9 @@ public class StadiumSpawner : MonoBehaviour {
 
 	private void SpawnRow(Vector3 sPos, Vector3 growDir, int chairAmount, Vector3 rot, bool isPlayerSpawnCandidate){
 		GameObject c;
-		int playerSpawnPos = 0;
 
 		int rowChairCount = Mathf.FloorToInt(chairAmount / chairWidth);
+		int playerSpawnPos = Mathf.FloorToInt (rowChairCount / 2);
 
 		for (int i = 1; i < rowChairCount; i++) {
 			Vector3 pos = sPos + i * growDir * chairWidth;
@@ -141,7 +141,7 @@ public class StadiumSpawner : MonoBehaviour {
 			c.transform.position = pos;
 			c.transform.rotation = Quaternion.Euler(rot);
 
-			if (isPlayerSpawnCandidate && i < rowChairCount*0.6f && i > rowChairCount*0.4f) {
+			if (isPlayerSpawnCandidate && i == playerSpawnPos) {
 				playerSpawnCandidates.Add (c);
 			}
 		}
