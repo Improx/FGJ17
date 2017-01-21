@@ -3,6 +3,7 @@ using System.Collections;
 
 public class GameController : MonoBehaviour {
     public GameObject DudePrefab;
+    public GameObject PlayerPrefab;
 
     public EventState State;
 
