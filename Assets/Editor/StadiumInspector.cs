@@ -9,8 +9,12 @@ public class StadiumInspector : Editor {
         DrawDefaultInspector();
         StadiumSpawner myTarget = (StadiumSpawner)target;
 
-        if (GUILayout.Button("Build Stadiums")) {
+        if (GUILayout.Button("Build Stadium")) {
             myTarget.SpawnStadium();
         }
+
+		if (GUILayout.Button("Clear Stadium")) {
+			myTarget.ClearStadium();
+		}
     }
 }
