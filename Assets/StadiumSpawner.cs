@@ -9,6 +9,9 @@ public class StadiumSpawner : MonoBehaviour {
 	[SerializeField] private GameObject chair;
 	[SerializeField] private GameObject player;
 	[SerializeField] private GameObject lamp;
+	[SerializeField] private GameObject soccerGoal;
+	[SerializeField] private GameObject soccerPlayer;
+	[SerializeField] private GameObject soccerBall;
 
 	[SerializeField] private float chairHeight;
 	[SerializeField] private float chairWidth;
@@ -16,10 +19,11 @@ public class StadiumSpawner : MonoBehaviour {
 	[SerializeField] private int rowsY;
 	[SerializeField] private int rowAmount;
 	[SerializeField] private Vector2 rowOffset;
-	[SerializeField] private Vector2 midAreaSize;
+	[SerializeField] private Vector3 midAreaSize;
 	[SerializeField] private int playerRowMinFromBottom;
 	[SerializeField] private int playerRowMaxFromTop;
 	[SerializeField] private Material grassMaterial;
+	[SerializeField] private int soccerPlayerAmount;
 	private int currentRow;
 	private Vector3 offsetFromCenter;
 	private GameObject ground;
@@ -38,7 +42,7 @@ public class StadiumSpawner : MonoBehaviour {
 
 		stadiumParent = GetCenterObject ().transform;
 
-		offsetFromCenter = Vector3.left * midAreaSize.x / 2 + Vector3.back * midAreaSize.y / 2;
+		offsetFromCenter = Vector3.left * midAreaSize.x / 2 + Vector3.back * midAreaSize.y / 2 + Vector3.up*midAreaSize.z;
 		for (int i = 0; i < rowAmount; i++) {
 			if (i >= playerRowMinFromBottom && i <= rowAmount-playerRowMaxFromTop) {
 				SpawnRectangle (i, true);
@@ -47,16 +51,52 @@ public class StadiumSpawner : MonoBehaviour {
 			}
 		}
 
+		SpawnLamps ();
+		SpawnGround ();
+		SpawnSoccer ();
+
+	}
+
+	private void SpawnLamps(){
 		SpawnLamp (Vector3.left * (midAreaSize.x + (5+rowAmount) * chairWidth)/2 + Vector3.back * (midAreaSize.y + (5+rowAmount) * chairWidth)/2);
 		SpawnLamp (Vector3.right * (midAreaSize.x + (5+rowAmount) * chairWidth)/2 + Vector3.back * (midAreaSize.y + (5+rowAmount) * chairWidth)/2);
 		SpawnLamp (Vector3.left * (midAreaSize.x + (5+rowAmount) * chairWidth)/2 + Vector3.forward * (midAreaSize.y + (5+rowAmount) * chairWidth)/2);
 		SpawnLamp (Vector3.right * (midAreaSize.x + (5+rowAmount) * chairWidth)/2 + Vector3.forward * (midAreaSize.y + (5+rowAmount) * chairWidth)/2);
+	}
 
+	private void SpawnGround(){
 		ground = GameObject.CreatePrimitive (PrimitiveType.Plane);
 		ground.GetComponent<MeshRenderer> ().sharedMaterial = grassMaterial;
 		ground.transform.SetParent (stadiumParent);
 		ground.transform.position = Vector3.zero;
-		ground.transform.localScale = new Vector3 (midAreaSize.x, 1f, midAreaSize.y);
+		ground.transform.localScale = new Vector3 (midAreaSize.x, 0.01f, midAreaSize.y);
+	}
+
+	private void SpawnSoccer(){
+		//RIGHT GOAL
+		GameObject g = (GameObject)Instantiate (soccerGoal);
+		g.transform.SetParent (stadiumParent);
+		g.transform.position = Vector3.right * midAreaSize.x/2 * 0.6f;
+		g.transform.rotation = Quaternion.Euler (Vector3.up * 90);
+
+		//LEFT GOAL
+		g = (GameObject)Instantiate (soccerGoal, stadiumParent);
+		g.transform.SetParent (stadiumParent);
+		g.transform.position = Vector3.left * midAreaSize.x/2 * 0.6f;
+		g.transform.rotation = Quaternion.Euler (Vector3.up * -90);
+
+		//PLAYERS
+		for(int i = 0; i < soccerPlayerAmount; i++){
+			g = (GameObject)Instantiate (soccerPlayer);
+			g.transform.position = new Vector3 (Random.Range (-0.4f, 0.4f) * midAreaSize.x/2, 1f, Random.Range (-0.4f, 0.4f) * midAreaSize.y/2);
+			g.transform.SetParent (stadiumParent);
+		}
+
+		//BALL
+		g = (GameObject)Instantiate (soccerBall);
+		g.transform.position = Vector3.up*3;
+		g.transform.SetParent (stadiumParent);
+
 	}
 
 	private void SpawnRectangle(int row, bool spawnPlayer = false){
