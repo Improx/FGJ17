@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Dude : MonoBehaviour {
+	[SerializeField] private GameObject head;
 	[SerializeField] private List<MeshRenderer> skinObjects;
 	[SerializeField] private List<MeshRenderer> shirtObjects;
 	[SerializeField] private List<MeshRenderer> pantsObjects;
@@ -11,16 +12,22 @@ public class Dude : MonoBehaviour {
 	[SerializeField] private ColorRange shirtColorRange;
 	[SerializeField] private ColorRange pantsColorRange;
 
-
     public Vector3 DirToCenter;
 
+	public bool Shaming = false;
+	private float unShameTime = 5.0f;
+	[SerializeField] private float unShameTimer;
+	private Quaternion lookingAt;
+
     public Cheer cheerer;
+	private Vector3 defaultHeadRot;
 
 	// Use this for initialization
 	void Start () {
 
         var center = Stadium.Instance.Center.transform.position;
         DirToCenter = (center - transform.position).normalized;
+		defaultHeadRot = head.transform.rotation.eulerAngles;
 
         DirToCenter.y = 0;
         DirToCenter.Normalize();
@@ -42,6 +49,20 @@ public class Dude : MonoBehaviour {
             }
         }
         SetYOffset(offset);
+
+		// SHAME TIMER
+		if (Shaming) {
+			unShameTimer -= Time.deltaTime;
+
+			if (lookingAt != GameController.Instance.playerReference.Head.transform.rotation) {
+				LookAtPlayer (false);
+			}
+		}
+
+		if (unShameTimer < 0) {
+			Shaming = false;
+			head.transform.rotation = Quaternion.Euler(defaultHeadRot);
+		}
     }
 
     public void SetYOffset(float offset) {
@@ -51,7 +72,6 @@ public class Dude : MonoBehaviour {
     }
 
 	private void RandomizeColors(){
-		print ("randomizing");
 		Color skinColor = Random.ColorHSV (skinColorRange.hueMin, skinColorRange.hueMax, skinColorRange.satMin, skinColorRange.satMax, skinColorRange.valMin, skinColorRange.valMax);
 		Color shirtColor = Random.ColorHSV (shirtColorRange.hueMin, shirtColorRange.hueMax, shirtColorRange.satMin, shirtColorRange.satMax, shirtColorRange.valMin, shirtColorRange.valMax);
 		Color pantsColor = Random.ColorHSV (pantsColorRange.hueMin, pantsColorRange.hueMax, pantsColorRange.satMin, pantsColorRange.satMax, pantsColorRange.valMin, pantsColorRange.valMax);
@@ -68,6 +88,20 @@ public class Dude : MonoBehaviour {
 			m.material.color = pantsColor;
 		}
 	}
+
+	public void LookAt(Vector3 pos, bool resetShameTime = true){
+		lookingAt = Quaternion.LookRotation (pos - transform.position) * Quaternion.Euler (-Vector3.up * 90);
+		head.transform.rotation = lookingAt;
+		Shaming = true;
+
+		if(resetShameTime)
+			unShameTimer = unShameTime;
+	}
+
+	public void LookAtPlayer(bool resetShameTime = true){
+		LookAt (GameController.Instance.playerReference.Head.transform.position, resetShameTime);
+	}
+
 
     /*private void OnDrawGizmosSelected() {
         Gizmos.color = Color.red;

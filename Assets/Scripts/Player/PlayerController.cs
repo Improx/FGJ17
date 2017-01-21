@@ -2,6 +2,16 @@
 
 public class PlayerController : MonoBehaviour {
 
+	private GameObject head;
+	public GameObject Head{
+		get{
+			if (head == null) {
+				head = transform.FindChild ("Torso/Body").gameObject;
+			}
+			return head;
+		}
+	}
+
     public float movementSpeed = 1.5f;
     public float turningSpeed = 60;
     [SerializeField]

@@ -1263,6 +1263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de3b4348c6fa4924cb6bb6000056afe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  head: {fileID: 1506080231695500}
   skinObjects:
   - {fileID: 23181094491032722}
   - {fileID: 23905974146684856}

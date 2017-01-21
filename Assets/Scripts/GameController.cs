@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GameController : MonoBehaviour {
     public GameObject DudePrefab;
     public GameObject PlayerPrefab;
+
+	public List<Dude> dudes;
 
 	public PlayerController playerReference;
 
@@ -27,6 +30,19 @@ public class GameController : MonoBehaviour {
         changeState(EventState.Wait);
 
     }
+
+	public void AllNPCsLookAtPlayer(){
+		StartCoroutine (npcShame ());
+	}
+
+	private IEnumerator npcShame(){
+		yield return new WaitForSeconds (0.5f);
+		foreach (Dude d in dudes) {
+			if (Mathf.Abs ((d.gameObject.transform.position - GameController.Instance.playerReference.transform.position).magnitude) < 20f) {
+				d.LookAtPlayer ();
+			}
+		}
+	}
 	
 	// Update is called once per frame
 	void Update () {
