@@ -11,8 +11,12 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     private string jumpKeyBind = "Jump";
 
+    [SerializeField]
+    private ScoreController theScoreController;
+
     void Start() {
         jump = new Vector3(0.0f, jumpForce, 0.0f);
+        theScoreController = FindObjectOfType<ScoreController>();
     }
 
     void Update()
@@ -23,7 +27,13 @@ public class PlayerController : MonoBehaviour {
             //transform.Translate(Vector3.up * 100 * Time.deltaTime, Space.World);
             isGrounded = false;
             gameObject.GetComponent<Rigidbody>().AddForce(jump , ForceMode.Impulse);
-
+            if (theScoreController.CanGainScoreBool)
+            {
+                theScoreController.addScore(1);
+            }
+            else {
+                theScoreController.reduceScore(1);
+            }
         }
     }
 

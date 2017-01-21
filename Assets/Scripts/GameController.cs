@@ -30,7 +30,10 @@ public class GameController : MonoBehaviour {
 	void Update () {
         switch (State) {
             case EventState.Wait:
-                if (EventTime + 5 < Time.time) {
+                /*if (EventTime + 5 < Time.time) {
+                    changeState(EventState.Idle);
+                }*/
+                if (Input.GetKeyDown(KeyCode.E)) {
                     changeState(EventState.Idle);
                 }
                 break;
