@@ -2,11 +2,7 @@
 
 public class PlayerController : MonoBehaviour {
 
-    public Vector3 jump;
-    public float jumpForce = 2.0f;
-    private bool isGrounded = true;
-
-    public float movementSpeed = 10;
+    public float movementSpeed = 1.5f;
     public float turningSpeed = 60;
     [SerializeField]
     private string jumpKeyBind = "Jump";
@@ -15,18 +11,15 @@ public class PlayerController : MonoBehaviour {
     private ScoreController theScoreController;
 
     void Start() {
-        jump = new Vector3(0.0f, jumpForce, 0.0f);
         theScoreController = FindObjectOfType<ScoreController>();
     }
 
     void Update()
     {
 
-        if (Input.GetButtonDown(jumpKeyBind) && isGrounded)
+        if (Input.GetButton(jumpKeyBind))
         {
-            //transform.Translate(Vector3.up * 100 * Time.deltaTime, Space.World);
-            isGrounded = false;
-            gameObject.GetComponent<Rigidbody>().AddForce(jump , ForceMode.Impulse);
+            PlayerDude.Instance.cheerer.Frame = Mathf.Lerp(PlayerDude.Instance.cheerer.Frame, 1.0f, movementSpeed * Time.deltaTime);
             if (theScoreController.CanGainScoreBool)
             {
                 theScoreController.addScore(1);
@@ -34,12 +27,9 @@ public class PlayerController : MonoBehaviour {
             else {
                 theScoreController.reduceScore(1);
             }
+        } else {
+            PlayerDude.Instance.cheerer.Frame = Mathf.Lerp(PlayerDude.Instance.cheerer.Frame, 0.0f, movementSpeed * Time.deltaTime);
         }
-    }
-
-    void OnCollisionEnter()
-    {
-        isGrounded = true;
     }
 
 }

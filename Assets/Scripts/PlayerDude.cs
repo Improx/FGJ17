@@ -19,4 +19,8 @@ class PlayerDude : Dude {
         DirToCenter.y = 0;
         DirToCenter.Normalize();
     }
+
+    private void Update() {
+
+    }
 }
