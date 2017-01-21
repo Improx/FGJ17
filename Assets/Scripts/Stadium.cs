@@ -34,11 +34,7 @@ public class Stadium : MonoBehaviour {
         
         foreach (var wave in Waves) {
 
-            EnableScore = wave.Tick(Time.deltaTime);
-            //print(Mathf.Round(EnableScore));
-            if (Mathf.Abs(Mathf.Round(EnableScore)) < 100 && Mathf.Abs(Mathf.Round(EnableScore)) > 80) {
-                theScoreController.CanGainScore(3);
-            }
+            wave.Tick(Time.deltaTime);
         }
 
         Waves.RemoveAll(wave => wave.IsDone);
@@ -53,4 +49,5 @@ public class Stadium : MonoBehaviour {
         var wave = new Wave(Center.position, speed, cone, startDir, reversed);
         Waves.Add(wave);
     }
+
 }

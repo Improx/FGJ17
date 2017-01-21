@@ -62,7 +62,6 @@ public class ScoreController : MonoBehaviour {
         if (score > maxScore) {
             score = maxScore;
         }
-        print(score);
         if (UpdateScore != null)
         {
             UpdateScore();
@@ -76,7 +75,6 @@ public class ScoreController : MonoBehaviour {
         {
             score = minScore;
         }
-        print(score);
         if (UpdateScore != null)
         {
             UpdateScore();
@@ -90,8 +88,11 @@ public class ScoreController : MonoBehaviour {
     }
 
     public void CanGainScore(float duration) {
-        StartCoroutine(CanGainScoreIENumerator(duration));
-        print("Can gain score");
+        if (!CanGainScoreBool) {
+            StartCoroutine(CanGainScoreIENumerator(duration));
+            print("Can gain score");
+        }
+        
     }
 
     private IEnumerator CanGainScoreIENumerator(float duration)
