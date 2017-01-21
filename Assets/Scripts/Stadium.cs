@@ -4,12 +4,7 @@ using UnityEngine;
 
 public class Stadium : MonoBehaviour {
 
-    public List<ListWrapper> Columns = new List<ListWrapper>();
-    
-
     public List<Wave> Waves;
-
-    public float maxYOffset;
 
     public Transform Center;
 
