@@ -3,8 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Cheer : MonoBehaviour {
-	[Range(0.0f, 1.0f)]
-	[SerializeField] private float frame;
+
+    private float frame;
+	public float Frame {
+        get {
+            return frame;
+        }
+        set {
+            frame = value;
+
+            if (frame > 0) {
+                anim.Play("Excited");
+            } else {
+                anim.Stop("Excited");
+            }
+        }
+    }
+
 	Animation anim;
 	public AnimationClip cheer;
 
@@ -15,13 +30,14 @@ public class Cheer : MonoBehaviour {
 		anim.AddClip (cheer, "Excited");
 		anim ["Excited"].time = 1.0f;
 		anim ["Excited"].speed = 0.0f;
-		anim.Play ("Excited");
 		/*anim.Play ("Excited");
 		anim ["Excited"].speed = 0;*/
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		anim ["Excited"].time = frame;
+		anim ["Excited"].time = Frame;
 	}
+
+    
 }

@@ -35,10 +35,8 @@ public class Wave {
     public void Tick (float delta) {
         if (Reverse) {
             DirAngle = DirAngle - delta * Speed;
-            Debug.Log("reverse " + Mathf.Abs(DirAngle - startAngle));
         } else {
             DirAngle = DirAngle + delta * Speed;
-            Debug.Log("normal " + (DirAngle - startAngle));
         }
     }
 
