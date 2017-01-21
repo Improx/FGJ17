@@ -544,5 +544,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dude: {fileID: 1000014004223820, guid: 2ee18e9bd7f4a4b4d94f0de497330dd1, type: 2}
+  playerObj: {fileID: 1749300018961320, guid: e0c7ec28d626ae746b54cb8ce337dc84, type: 2}
   seatOffset: {x: 0.5, y: 2.5, z: 0}
   rotationOffset: {x: 0, y: -90, z: 0}
+  spawnPlayer: 0
