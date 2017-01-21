@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class StadiumSpawner : MonoBehaviour {
 
@@ -13,20 +14,16 @@ public class StadiumSpawner : MonoBehaviour {
 	[SerializeField] private Vector2 rowOffset;
 	[SerializeField] private Vector2 midAreaSize;
 	private int currentRow;
+	private List<GameObject> stadiumObjects;
 
-	void Start(){
-		SpawnStadium ();
-	}
-
-	private void SpawnStadium(){
+	public void SpawnStadium(){
+		ClearStadium ();
 		for (int i = 0; i < rowAmount; i++) {
 			SpawnRectangle (i);
 		}
 	}
 
 	private void SpawnRectangle(int row){
-		//Vector2 startingSize = midAreaSize + rows * rowOffset.x;
-		GameObject b = (GameObject)Instantiate (floorBlock);
 
 		int xAmount = Mathf.FloorToInt (midAreaSize.x + currentRow * rowOffset.x * row);
 		int yAmount = Mathf.FloorToInt (midAreaSize.y + currentRow * rowOffset.x * row);
@@ -53,11 +50,20 @@ public class StadiumSpawner : MonoBehaviour {
 	}
 
 	private void SpawnBlock(Vector3 pos, Vector3 rot){
-		Instantiate (floorBlock, pos, Quaternion.Euler(rot));
+		GameObject g = (GameObject) Instantiate (floorBlock, pos, Quaternion.Euler(rot));
+		stadiumObjects.Add (g);
 	}
 
 	private GameObject GetChair(){
 		GameObject c = (GameObject)Instantiate (chair);
+		stadiumObjects.Add (c);
 		return c;
+	}
+
+	public void ClearStadium(){
+		foreach (GameObject g in stadiumObjects) {
+			DestroyImmediate (g);
+		}
+		stadiumObjects.Clear ();
 	}
 }
