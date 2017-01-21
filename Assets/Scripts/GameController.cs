@@ -31,8 +31,6 @@ public class GameController : MonoBehaviour {
             case EventState.Wait:
                 if (EventTime + 5 < Time.time) {
                     changeState(EventState.Idle);
-
-                    Stadium.Instance.GenerateRandomWave();
                 }
                 break;
             case EventState.Idle:
