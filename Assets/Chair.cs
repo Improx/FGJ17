@@ -21,5 +21,6 @@ public class Chair : MonoBehaviour {
 	public void SpawnPlayer(){
 		print ("spawned player!");
 		player = (GameObject)Instantiate (GameController.Instance.PlayerPrefab, transform.position + seatOffset, transform.rotation * Quaternion.Euler(rotationOffset));
+		GameController.Instance.playerReference = player.GetComponent<PlayerController>();
 	}
 }
