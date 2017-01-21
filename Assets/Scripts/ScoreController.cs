@@ -34,6 +34,20 @@ public class ScoreController : MonoBehaviour {
         get { return canGainScoreBool; }
     }
 
+    private static ScoreController instance;
+    public static ScoreController Instance
+    {
+        get
+        {
+            if (!instance)
+            {
+                instance = GameObject.FindObjectOfType<ScoreController>();
+            }
+
+            return instance;
+        }
+    }
+
     void Start () {
         if (UpdateScore != null)
         {
@@ -83,6 +97,9 @@ public class ScoreController : MonoBehaviour {
         canGainScoreBool = true;
         yield return new WaitForSeconds(duration);
         canGainScoreBool = false;
+        print("No more score");
 
     }
+
+
 }
