@@ -13,8 +13,11 @@ public class AIFootballPlayer : MonoBehaviour {
     private float minTimeToChangeDirection;
     [SerializeField]
     private float maxTimeToChangeDirection;
+	private Rigidbody rb;
 
-
+	void Awake(){
+		rb = GetComponent<Rigidbody> ();
+	}
 
 	void Start () {
         float newCoolDown = Random.Range(minTimeToChangeDirection, maxTimeToChangeDirection);
@@ -25,7 +28,7 @@ public class AIFootballPlayer : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        transform.Translate(0, 0, moveSpeed*Time.deltaTime);
+		rb.velocity = transform.InverseTransformDirection(new Vector3(0, 0, moveSpeed*Time.deltaTime));
     }
 
     private IEnumerator changeDirection(float coolDown, float direction) {

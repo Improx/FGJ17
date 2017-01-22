@@ -22,7 +22,6 @@ public class PlayRandomSounds : MonoBehaviour {
 
     private IEnumerator playRandomSound(int sound, float cooldown) {
         myAudioSource.PlayOneShot(audios[sound]);
-        print("aaaa");
         yield return new WaitForSeconds(cooldown);
         int randomSound = Random.Range(0, audios.Length);
         float newCooldown = Random.Range(0,5f);

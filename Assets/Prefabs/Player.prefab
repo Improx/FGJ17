@@ -1356,6 +1356,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   head: {fileID: 1422586127775590}
+  face: {fileID: 0}
   skinObjects:
   - {fileID: 23715718516578874}
   - {fileID: 23835586704840540}
@@ -1392,8 +1393,10 @@ MonoBehaviour:
     satMax: 0
     valMin: 0
     valMax: 0
+  faces: []
   DirToCenter: {x: 0, y: 0, z: 0}
-  IsShameful: 0
+  Shaming: 0
+  unShameTimer: 0
   cheerer: {fileID: 114362663088503966}
 --- !u!114 &114605978915234712
 MonoBehaviour:
@@ -1408,8 +1411,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 10
   turningSpeed: 60
+  cheerSound: {fileID: 0}
+  durationToGainScore: 1
+  minAngleToGainScore: 0
+  maxAngleToGainScore: 20
+  scoreGainPerFrame: 40
+  scoreReducedPerFrame: 20
   jumpKeyBind: Fire1
   theScoreController: {fileID: 0}
+  DirToCenter: {x: 0, y: 0, z: 0}
 --- !u!114 &114985720931202206
 MonoBehaviour:
   m_ObjectHideFlags: 1

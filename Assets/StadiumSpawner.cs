@@ -12,6 +12,7 @@ public class StadiumSpawner : MonoBehaviour {
 	[SerializeField] private GameObject soccerGoal;
 	[SerializeField] private GameObject soccerPlayer;
 	[SerializeField] private GameObject soccerBall;
+	[SerializeField] private GameObject scoreBoard;
 
 	[SerializeField] private float chairHeight;
 	[SerializeField] private float chairWidth;
@@ -57,6 +58,7 @@ public class StadiumSpawner : MonoBehaviour {
 		SpawnLamps ();
 		SpawnGround ();
 		SpawnSoccer ();
+		SpawnScoreBoards ();
 
 	}
 
@@ -65,6 +67,19 @@ public class StadiumSpawner : MonoBehaviour {
 		SpawnLamp (Vector3.right * (midAreaSize.x + (5+rowAmount) * chairWidth)/2 + Vector3.back * (midAreaSize.y + (5+rowAmount) * chairWidth)/2);
 		SpawnLamp (Vector3.left * (midAreaSize.x + (5+rowAmount) * chairWidth)/2 + Vector3.forward * (midAreaSize.y + (5+rowAmount) * chairWidth)/2);
 		SpawnLamp (Vector3.right * (midAreaSize.x + (5+rowAmount) * chairWidth)/2 + Vector3.forward * (midAreaSize.y + (5+rowAmount) * chairWidth)/2);
+	}
+
+	private void SpawnScoreBoards(){
+		SpawnScoreBoard (Vector3.back * (midAreaSize.y + (10+rowAmount) * chairWidth)/2, Vector3.zero);
+		SpawnScoreBoard (Vector3.forward * (midAreaSize.y + (10+rowAmount) * chairWidth)/2, Vector3.up * 180f);
+	}
+
+	private void SpawnScoreBoard(Vector3 pos, Vector3 rot){
+		GameObject g = (GameObject) Instantiate (scoreBoard);
+		g.transform.SetParent (stadiumParent);
+		g.transform.position = pos;
+
+		g.transform.rotation = Quaternion.Euler (rot);
 	}
 
 	private void SpawnGround(){

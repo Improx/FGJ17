@@ -108,9 +108,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3de5eb3526a630b4fa09e79a7badb44c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 7
-  minTimeToChangeDirection: 1
-  maxTimeToChangeDirection: 3
+  moveSpeed: 50
+  minTimeToChangeDirection: 2
+  maxTimeToChangeDirection: 4
 --- !u!136 &136916292713210406
 CapsuleCollider:
   m_ObjectHideFlags: 1
