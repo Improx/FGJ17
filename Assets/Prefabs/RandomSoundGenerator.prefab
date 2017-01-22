@@ -35,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1675378632347888}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -32.469994, y: 1.5979128, z: -14.162941}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -52,13 +52,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.055
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 81
+  Priority: 188
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -135,7 +135,6 @@ MonoBehaviour:
   audios:
   - {fileID: 8300000, guid: 897123d904889574aae2800d955da852, type: 3}
   - {fileID: 8300000, guid: 538870d056b94c840be7716f84e8ab2f, type: 3}
-  - {fileID: 8300000, guid: 2647025001176a9419031216704327af, type: 3}
   - {fileID: 8300000, guid: 676a9ed75827142749f9d717b4a22a45, type: 3}
   minSoundCooldown: 6
   maxSoundCooldown: 12

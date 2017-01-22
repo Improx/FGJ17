@@ -19,7 +19,7 @@ public class StadiumSpawner : MonoBehaviour {
 	[SerializeField] private int rowsY;
 	[SerializeField] private int rowAmount;
 	[SerializeField] private Vector2 rowOffset;
-	[SerializeField] private Vector3 midAreaSize;
+	public Vector3 midAreaSize;
 	[SerializeField] private int playerRowMinFromBottom;
 	[SerializeField] private int playerRowMaxFromTop;
 	[SerializeField] private Material grassMaterial;
@@ -30,9 +30,12 @@ public class StadiumSpawner : MonoBehaviour {
 
 	[SerializeField] private List<GameObject> playerSpawnCandidates;
 
+	public static StadiumSpawner Instance;
+
 	void Awake(){
 		int i = Random.Range (0, playerSpawnCandidates.Count - 1);
 		playerSpawnCandidates [i].GetComponent<Chair> ().SpawnPlayer();
+		Instance = this;
 	}
 
 	public void SpawnStadium(){

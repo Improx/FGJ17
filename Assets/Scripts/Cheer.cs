@@ -15,7 +15,10 @@ public class Cheer : MonoBehaviour {
             if (frame > 0) {
                 anim.Play("Excited");
             } else {
-                anim.Stop("Excited");
+				//anim ["Excited"].time = 0f;
+                //anim.Stop("Excited");
+				StopCoroutine(SitDown());
+				StartCoroutine(SitDown());
             }
         }
     }
@@ -39,5 +42,11 @@ public class Cheer : MonoBehaviour {
 		anim ["Excited"].time = Frame;
 	}
 
-    
+	private IEnumerator SitDown(){
+		while (anim ["Excited"].time > 0) {
+			anim ["Excited"].time--;
+			yield return new WaitForSeconds(0.1f);
+		}
+		anim.Stop("Excited");
+	}
 }

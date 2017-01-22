@@ -15,6 +15,7 @@ public class Dude : MonoBehaviour {
 
 	[SerializeField] private List<FaceStyle> faces;
 
+	public float offset;
     public Vector3 DirToCenter;
 
 	public bool Shaming = false;
@@ -39,17 +40,18 @@ public class Dude : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-
-        float offset = 0;
+        offset = 0;
         foreach (var wave in Stadium.Instance.Waves) {
 
                 
             var angle = Vector3.Angle(-DirToCenter, wave.Direction);
             
-            if (angle <= wave.ConeAngle / 2) {
+			if (angle <= wave.ConeAngle / 2) {
                 
-                offset = (1-(angle / (wave.ConeAngle / 2)));
-            }
+				offset = (1 - (angle / (wave.ConeAngle / 2)));
+			} else {
+				offset = 0;
+			}
         }
         SetYOffset(offset);
 
