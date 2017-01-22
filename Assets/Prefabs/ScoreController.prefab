@@ -55,5 +55,5 @@ MonoBehaviour:
   minScore: -500
   isShamed: 0
   currentShame: 0
-  shameLimit: 50
-  shameReducedPerFrame: 20
+  shameLimit: 30
+  shameReducedPerFrame: 10
