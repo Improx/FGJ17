@@ -13,7 +13,7 @@ public class Cheer : MonoBehaviour {
             frame = value;
 
             if (frame > 0) {
-                anim.Play("Excited");
+                Anim.Play("Excited");
             } else {
 				//anim ["Excited"].time = 0f;
                 //anim.Stop("Excited");
@@ -24,29 +24,46 @@ public class Cheer : MonoBehaviour {
     }
 
 	Animation anim;
+	Animation Anim{
+		get{ 
+			if (anim == null) {
+				anim = GetComponent<Animation> ();
+			}
+			return anim;
+		}
+	}
 	public AnimationClip cheer;
 
 	// Use this for initialization
 	void Start () {
-		anim = GetComponent<Animation> ();
 		cheer.legacy = true;
-		anim.AddClip (cheer, "Excited");
-		anim ["Excited"].time = 1.0f;
-		anim ["Excited"].speed = 0.0f;
+		Anim.AddClip (cheer, "Excited");
+		Anim ["Excited"].time = 1.0f;
+		Anim ["Excited"].speed = 0.0f;
 		/*anim.Play ("Excited");
 		anim ["Excited"].speed = 0;*/
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		anim ["Excited"].time = Frame;
+		Anim ["Excited"].time = Frame;
 	}
 
 	private IEnumerator SitDown(){
-		while (anim ["Excited"].time > 0) {
-			anim ["Excited"].time--;
-			yield return new WaitForSeconds(0.1f);
+		if (Anim != null) {
+			while (Anim ["Excited"].time > 0) {
+				Anim ["Excited"].time--;
+				yield return new WaitForSeconds (0.1f);
+			}
+			Anim.Stop ("Excited");
 		}
-		anim.Stop("Excited");
+	}
+
+	void OnDestroy(){
+		StopCoroutine (SitDown ());
+	}
+
+	void Disable(){
+		StopCoroutine (SitDown ());
 	}
 }

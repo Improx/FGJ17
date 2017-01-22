@@ -31,6 +31,7 @@ public class GameController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         changeState(EventState.Wait);
+		Cursor.visible = false;
 
     }
 

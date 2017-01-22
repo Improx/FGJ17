@@ -51,8 +51,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f1ce14f601034b4088d96f1e86ee3da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxScore: 500
-  minScore: -500
+  maxScore: 300
+  minScore: -300
   isShamed: 0
   currentShame: 0
   shameLimit: 30
