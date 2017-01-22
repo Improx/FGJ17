@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114884716615333398}
   - component: {fileID: 114266033142033332}
   - component: {fileID: 114730122029055648}
+  - component: {fileID: 114738803085133530}
   m_Layer: 5
   m_Name: GameOverScreen
   m_TagString: Untagged
@@ -586,7 +587,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 906.6666, y: -585}
+  m_AnchoredPosition: {x: 513.76886, y: -615}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224504019112218618

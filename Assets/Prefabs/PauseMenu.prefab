@@ -472,6 +472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 224744795084831454}
+  menuScene: MainMenu
 --- !u!222 &222079169911970940
 CanvasRenderer:
   m_ObjectHideFlags: 1
