@@ -24,14 +24,12 @@ public class Idle : MonoBehaviour {
 		animationCounter = Random.Range(0, 60);
 		animNames.Add("HeadIdle");
 		animNames.Add("HeadSpin");
-		//animNames.Add("IdleJump");
 		animNames.Add("IdleSway");
 		animNames.Add("IdleYawn");
 		animNames.Add("LegsIdle");
 		animNames.Add("IdleRobot");
 		anim.AddClip (headIdle, "HeadIdle");
 		anim.AddClip (headSpin, "HeadSpin");
-		//anim.AddClip (idleJump, "IdleJump");
 		anim.AddClip (idleSway, "IdleSway");
 		anim.AddClip (idleYawn, "IdleYawn");
 		anim.AddClip (legsIdle, "LegsIdle");
@@ -44,7 +42,7 @@ public class Idle : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if ((animationCounter % 60 == 0) && !anim.isPlaying /*&& cheerframe == 0*/) {
-			anim.Play (animNames [Random.Range (0, animNames.Count - 1)]);
+			anim.Play (animNames [Random.Range (0, animNames.Count)]);
 			print ("update");
 		}
 		animationCounter += 1;
