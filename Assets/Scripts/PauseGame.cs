@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseGame : MonoBehaviour {
     
 
     public Transform canvas;
-	
-	void Update () {
+    [SerializeField]
+    private string menuScene = "MainMenu";
+    void Update () {
 
 	    if (Input.GetKeyDown(KeyCode.Escape)){
             if (canvas.gameObject.activeInHierarchy == false){
@@ -31,6 +33,13 @@ public class PauseGame : MonoBehaviour {
         if (canvas.gameObject.activeInHierarchy == true){
             canvas.gameObject.SetActive(false);
             Time.timeScale = 1;
+            PlayerController.Instance.enabled = true;
+            MouseAimCamera.Instance.enabled = true;
         }
+    }
+    public void ReturnMainMenu()
+    {
+        print("Go main menu");
+        SceneManager.LoadScene(menuScene);
     }
 }
