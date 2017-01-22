@@ -43,7 +43,7 @@ public class Stadium : MonoBehaviour {
 		List<Wave> waves = Waves.FindAll (wave => wave.IsDone);
 		foreach (Wave w in waves) {
 			if (w.IsDone) {
-				Destroy (w.SoundSource);
+				Destroy (w.SoundSource.gameObject);
 				Waves.Remove (w);
 			}
 		}
