@@ -23,13 +23,13 @@ public class Idle : MonoBehaviour {
 		anim = GetComponent<Animation> ();
 		animationCounter = Random.Range(0, 600);
 		animNames.Add("HeadIdle");
-		animNames.Add("HeadSpin");
+		//animNames.Add("HeadSpin");
 		animNames.Add("IdleSway");
 		animNames.Add("IdleYawn");
 		animNames.Add("LegsIdle");
 		//animNames.Add("IdleRobot");
 		anim.AddClip (headIdle, "HeadIdle");
-		anim.AddClip (headSpin, "HeadSpin");
+		//anim.AddClip (headSpin, "HeadSpin");
 		anim.AddClip (idleSway, "IdleSway");
 		anim.AddClip (idleYawn, "IdleYawn");
 		anim.AddClip (legsIdle, "LegsIdle");
