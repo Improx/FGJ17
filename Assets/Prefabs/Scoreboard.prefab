@@ -88,7 +88,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4379719557895184}
-  - component: {fileID: 114662192668560158}
+  - component: {fileID: 114457402723515424}
   m_Layer: 0
   m_Name: Scoreboard
   m_TagString: Scoreboard
@@ -412,7 +412,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 0
---- !u!114 &114662192668560158
+--- !u!114 &114457402723515424
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -423,7 +423,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85a0043eafa24bd1864dcb67e1eff1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: {fileID: 0}
+  goals: []
+  scoreTexts: []
 --- !u!114 &114705400690436460
 MonoBehaviour:
   m_ObjectHideFlags: 1
