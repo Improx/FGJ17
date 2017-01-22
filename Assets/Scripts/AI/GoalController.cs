@@ -14,11 +14,6 @@ public class GoalController : MonoBehaviour {
 
     public int score = 0;
 
-    void Start()
-    {
-        ScoreTextObject.text = score.ToString();
-    }
-
 	public static Stadium Instance {
 		get {
 			if (!instance) {
@@ -35,7 +30,6 @@ public class GoalController : MonoBehaviour {
 			Instance.GenerateRandomWave ();
             other.transform.position = ballPosition;
             score += 1;
-            ScoreTextObject.text = score.ToString();
             print(score);
         }
     }

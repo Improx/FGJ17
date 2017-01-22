@@ -1413,10 +1413,10 @@ MonoBehaviour:
   movementSpeed: 10
   turningSpeed: 60
   cheerSound: {fileID: 0}
-  durationToGainScore: 1
+  durationToGainScore: 0.5
   minAngleToGainScore: 0
-  maxAngleToGainScore: 20
-  scoreGainPerFrame: 40
+  maxAngleToGainScore: 1
+  scoreGainPerFrame: 80
   scoreReducedPerFrame: 20
   jumpKeyBind: Fire1
   theScoreController: {fileID: 0}
