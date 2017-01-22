@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114884716615333398}
   - component: {fileID: 114266033142033332}
   - component: {fileID: 114730122029055648}
+  - component: {fileID: 114738803085133530}
   m_Layer: 5
   m_Name: GameOverScreen
   m_TagString: Untagged
@@ -368,9 +369,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverScreen: {fileID: 1996867939292640}
   menuScene: 
+  endText: {fileID: 0}
 --- !u!114 &114738803085133530
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1065994894724770}
