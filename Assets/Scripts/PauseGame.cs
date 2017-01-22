@@ -17,6 +17,7 @@ public class PauseGame : MonoBehaviour {
 				Time.timeScale = 0;
 				PlayerController.Instance.enabled = false;
 				MouseAimCamera.Instance.enabled = false;
+				Cursor.visible = true;
 			}
 			else{
 				canvas.gameObject.SetActive(false);
@@ -24,6 +25,7 @@ public class PauseGame : MonoBehaviour {
 				print("ldas");
 				PlayerController.Instance.enabled = true;
 				MouseAimCamera.Instance.enabled = true;
+				Cursor.visible = false;
 			}
 		}	
 	}
