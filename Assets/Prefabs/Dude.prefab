@@ -316,6 +316,7 @@ GameObject:
   - component: {fileID: 114970593517532372}
   - component: {fileID: 114685298870980894}
   - component: {fileID: 111598227040213784}
+  - component: {fileID: 114839922696227078}
   m_Layer: 0
   m_Name: Dude
   m_TagString: Untagged
@@ -1252,6 +1253,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cheer: {fileID: 7400000, guid: 32ebc2b716a01451da0354e4a1cdfd0c, type: 2}
+--- !u!114 &114839922696227078
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1938194571575256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4cad1055a72d486285e40d4985035a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  headIdle: {fileID: 7400000, guid: 1e0decb43c5774b73b3f81483c84111a, type: 2}
+  headSpin: {fileID: 7400000, guid: 26c11f64264ca4e899ddbc15bad31013, type: 2}
+  idleSway: {fileID: 7400000, guid: 41fe3bc6c877f4da8b357fb50d90ed19, type: 2}
+  idleYawn: {fileID: 7400000, guid: ed5a37e3199294f54bf6b813cb822d6e, type: 2}
+  legsIdle: {fileID: 7400000, guid: 2b7166d334590420d9917e8688c8ca94, type: 2}
+  idleRobot: {fileID: 7400000, guid: c5ba31e2874c8488aa891480b7c9f55e, type: 2}
 --- !u!114 &114970593517532372
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1311,6 +1329,7 @@ MonoBehaviour:
     face: {fileID: 2800000, guid: a6668a6745a5b47128809778a97aca6a, type: 3}
   - name: wtf
     face: {fileID: 2800000, guid: 5b39d70b20aad4339bd70431dea856b3, type: 3}
+  offset: 0
   DirToCenter: {x: 0, y: 0, z: 0}
   Shaming: 0
   unShameTimer: 0
