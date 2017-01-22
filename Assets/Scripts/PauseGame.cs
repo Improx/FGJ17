@@ -6,7 +6,6 @@ public class PauseGame : MonoBehaviour {
     
 
     public Transform canvas;
-    //public PlayerController Player;
 	
 	void Update () {
 
@@ -14,14 +13,15 @@ public class PauseGame : MonoBehaviour {
             if (canvas.gameObject.activeInHierarchy == false){
                 canvas.gameObject.SetActive(true);
                 Time.timeScale = 0;
-                //Player = FindObjectOfType<PlayerController>();
-                //Player.gameObject.active = false;            
+                PlayerController.Instance.enabled = false;
+                MouseAimCamera.Instance.enabled = false;
             }
             else{
                 canvas.gameObject.SetActive(false);
                 Time.timeScale = 1;
                 print("ldas");
-                //Player.gameObject.active = true;       
+                PlayerController.Instance.enabled = true;
+                MouseAimCamera.Instance.enabled = true;
             }
         }	
 	}

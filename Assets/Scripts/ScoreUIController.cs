@@ -43,7 +43,6 @@ public class ScoreUIController : MonoBehaviour {
         else {
             fillArea.color = neutralColor;
         }
-        print(theScoreController.Score);
 
     }
 }
