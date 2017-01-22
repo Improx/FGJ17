@@ -82,7 +82,8 @@ public class ScoreController : MonoBehaviour {
 	public void reduceScore(float scoreToreduce)
 	{
 		score -= scoreToreduce;
-		if (score < minScore)
+        EndGame();
+        if (score < minScore)
 		{
 			score = minScore;
 		}
@@ -104,9 +105,9 @@ public class ScoreController : MonoBehaviour {
 	}
 
 
-	public void endGame() {
+	public void EndGame() {
 		if (score <= minScore) {
-			print("You lost");
+            GameOverController.Instance.LoseGame();
 		}
 
 	}
