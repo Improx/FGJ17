@@ -43,7 +43,6 @@ public class Idle : MonoBehaviour {
 	void Update () {
 		if ((animationCounter % 600 == 0) && !anim.isPlaying /*&& cheerframe == 0*/) {
 			anim.Play (animNames [Random.Range (0, animNames.Count)]);
-			print ("update");
 		}
 		animationCounter += 1;
 	}

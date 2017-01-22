@@ -367,6 +367,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverScreen: {fileID: 1996867939292640}
+  menuScene: MainMenu
+  endText: {fileID: 114791282651373862}
 --- !u!114 &114776306934161454
 MonoBehaviour:
   m_ObjectHideFlags: 1
