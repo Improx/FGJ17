@@ -16,6 +16,20 @@ public class MouseAimCamera : MonoBehaviour
 
     public GameObject Head;
 
+    private static MouseAimCamera instance;
+    public static MouseAimCamera Instance
+    {
+        get
+        {
+            if (!instance)
+            {
+                instance = GameObject.FindObjectOfType<MouseAimCamera>();
+            }
+
+            return instance;
+        }
+    }
+
     //private Transform cameraTransform;
     void Start()
     {
