@@ -6,6 +6,7 @@ TagManager:
   tags:
   - GameArea
   - Football
+  - Scoreboard
   layers:
   - Default
   - TransparentFX
